@@ -1,0 +1,13 @@
+[user]
+        name = Bernerd Schaefer
+        email = bj.schaefer@gmail.com
+[credential]
+        helper = osxkeychain
+[hub]
+        protocol = https
+[push]
+        default = current
+[color]
+        ui = true
+[core]
+        excludesfile = /Users/bernerdschaefer/.gitignore_global
