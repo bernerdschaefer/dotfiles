@@ -5,15 +5,16 @@ in rec {
   # TODO: macvim currently won't build for me
   # macvim = pkgs.macvim;
 
-  go = pkgs.go;
-  fish = pkgs.fish;
-
   # TODO: git setup breaks on https
   # git = pkgs.git
   # hub = pkgs.gitAndTools.hub
 
+  go = pkgs.go;
+  fish = pkgs.fish;
+
   mercurial = pkgs.mercurial;
   sloccount = pkgs.sloccount;
+  ctags = pkgs.ctags;
 
   silversearcher = stdenv.mkDerivation rec {
     name = "silversearcher-${version}";
@@ -25,7 +26,7 @@ in rec {
     };
 
     nativeBuildInputs = [ pkgs.pkgconfig pkgs.autoconf pkgs.automake ];
-    buildInputs = [ pkgs.lzma pkgs.pcre];
+    buildInputs = [ pkgs.lzma pkgs.pcre ];
 
     preConfigure = ''
       ${pkgs.automake}/bin/aclocal
