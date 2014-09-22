@@ -4,7 +4,7 @@ set nocompatible
 set shell=/bin/bash
 
 " set up golang plugin
-set rtp+=/usr/local/go/misc/vim/
+set rtp+=$GOROOT/misc/vim
 
 " set up protobuf plugin
 set rtp+=$HOME/.vim/plugins/vim-protobuf/

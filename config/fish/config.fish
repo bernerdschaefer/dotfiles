@@ -11,6 +11,8 @@ if status --is-login
   set -x GOPATH ~
   set -x PATH $PATH $GOPATH/bin
 
+  set -x GOROOT "$HOME/.nix-profile/share/go"
+
   # Basic path setup
   set -x PATH /usr/local/Cellar/ruby/1.9.3-p286/bin $PATH
   set -x PATH /usr/local/share/npm/bin $PATH
