@@ -1,2 +1,2 @@
-EXCLUDES="README.md profile.nix"
+EXCLUDES="README.md profile.nix iterm"
 DOTFILES_DIRS="$HOME/src/github.com/bernerdschaefer/dotfiles"
