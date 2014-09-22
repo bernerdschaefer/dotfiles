@@ -13,7 +13,7 @@ in rec {
   fish = pkgs.fish;
 
   mercurial = pkgs.mercurial;
-  sloccount = pkgs.sloccount;
+  cloc = pkgs.cloc;
   ctags = pkgs.ctags;
 
   ack = pkgs.ack;
