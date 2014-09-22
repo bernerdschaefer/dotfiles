@@ -1,0 +1,2 @@
+EXCLUDES="README.md profile.nix"
+DOTFILES_DIRS="$HOME/src/github.com/bernerdschaefer/dotfiles"
