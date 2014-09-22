@@ -16,6 +16,8 @@ in rec {
   sloccount = pkgs.sloccount;
   ctags = pkgs.ctags;
 
+  ack = pkgs.ack;
+
   silversearcher = stdenv.mkDerivation rec {
     name = "silversearcher-${version}";
     version = "0.24.1";
