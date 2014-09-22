@@ -14,3 +14,13 @@ grep -q "$_fish" /etc/shells || {
 
 chsh -s "$_fish"
 ```
+
+### Manage vim plugins
+
+```
+git remote add uarun/vim-protobuf https://github.com/uarun/vim-protobuf
+git subtree add --squash --prefix=vim/plugins/vim-protobuf uarun/vim-protobuf/master
+
+git remote add mikewest/vimroom https://github.com/mikewest/vimroom
+git subtree add --squash --prefix=vim/plugins/vimroom mikewest/vimroom/master
+```
