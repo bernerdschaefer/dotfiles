@@ -14,17 +14,17 @@ if status --is-login
   set -x GOPATH ~
   set -x PATH $PATH $GOPATH/bin
 
-  # Basic path setup
-  set -x PATH /usr/local/Cellar/ruby/1.9.3-p286/bin $PATH
-  set -x PATH /usr/local/share/npm/bin $PATH
-
-  # Set up Vim
-  alias vim="/usr/local/Cellar/macvim/7.3-65/MacVim.app/Contents/MacOS/Vim"
-
-  set -x EDITOR /usr/local/Cellar/macvim/7.3-65/MacVim.app/Contents/MacOS/Vim
-
   # hub alias
   alias git=hub
+
+  set -x EDITOR (which vim)
+end
+
+# set up rbenv
+if status --is-interactive
+  set -x PATH $HOME/.rbenv/bin $PATH
+
+  . (rbenv init - --no-rehash | psub)
 end
 
 function fish_user_key_bindings
