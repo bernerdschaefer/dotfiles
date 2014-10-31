@@ -12,7 +12,6 @@ if status --is-login
   set fish_greeting ""
 
   set -x GOPATH ~
-  set -x PATH $PATH $GOPATH/bin
 
   # hub alias
   alias git=hub
@@ -20,7 +19,14 @@ if status --is-login
   set -x EDITOR (which vim)
 end
 
-# set up rbenv
+# go setup
+if status --is-interactive
+  set -x GOPATH ~
+  set -x PATH $PATH $GOPATH/bin
+  set -x GOROOT /usr/local/opt/go/libexec
+end
+
+# rbenv setup
 if status --is-interactive
   set -x PATH $HOME/.rbenv/bin $PATH
 

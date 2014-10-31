@@ -4,8 +4,19 @@ brew_install_or_upgrade 'fish'
 brew_install_or_upgrade 'hub'
 brew_install_or_upgrade 'cloc'
 
+brew_install_or_upgrade go --cross-compile-common
+brew_install_or_upgrade mercurial
+
+# set up additional go tools
+(
+  export GOROOT=/usr/local/opt/go/libexec GOPATH=$HOME &&
+  go get code.google.com/p/go.tools/cmd/{godoc,vet} &&
+  go get github.com/golang/lint/golint
+)
+
 # cask
 brew tap caskroom/cask
 brew_install_or_upgrade 'brew-cask'
 
 brew cask install slack
+brew cask install java
