@@ -1,17 +1,18 @@
-if status --is-login
-  set -l nix_link "$HOME/.nix-profile"
-
-  set -x PATH $nix_link/bin $nix_link/sbin $PATH
-  set -x NIX_PATH $NIX_PATH nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs
-end
+# # nix setup (currently disabled)
+# if status --is-login
+#   set -l nix_link "$HOME/.nix-profile"
+#
+#   set -x PATH $nix_link/bin $nix_link/sbin $PATH
+#   set -x NIX_PATH $NIX_PATH nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs
+#
+#   set -x GOROOT "$HOME/.nix-profile/share/go"
+# end
 
 if status --is-login
   set fish_greeting ""
 
   set -x GOPATH ~
   set -x PATH $PATH $GOPATH/bin
-
-  set -x GOROOT "$HOME/.nix-profile/share/go"
 
   # Basic path setup
   set -x PATH /usr/local/Cellar/ruby/1.9.3-p286/bin $PATH
