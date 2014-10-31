@@ -1,0 +1,11 @@
+#!/bin/sh
+
+brew_install_or_upgrade 'fish'
+brew_install_or_upgrade 'hub'
+brew_install_or_upgrade 'cloc'
+
+# cask
+brew tap caskroom/cask
+brew_install_or_upgrade 'brew-cask'
+
+brew cask install slack
