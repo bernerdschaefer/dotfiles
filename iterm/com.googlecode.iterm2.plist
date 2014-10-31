@@ -303,29 +303,16 @@
 	<string></string>
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
-	<key>NSToolbar Configuration Terminal Toolbar</key>
-	<dict>
-		<key>TB Display Mode</key>
-		<integer>1</integer>
-		<key>TB Icon Size Mode</key>
-		<integer>1</integer>
-		<key>TB Is Shown</key>
-		<integer>0</integer>
-		<key>TB Size Mode</key>
-		<integer>1</integer>
-	</dict>
 	<key>NSWindow Frame Preferences</key>
-	<string>367 451 924 485 0 0 1920 1178 </string>
+	<string>786 598 924 485 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>240 151 1440 880 0 0 1920 1178 </string>
+	<string>680 148 1200 1200 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>240 151 1440 880 0 0 1920 1178 </string>
+	<string>680 148 1200 1200 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>240 151 1440 880 0 0 1920 1178 </string>
-	<key>NSWindow Frame iTerm Window 3</key>
-	<string>240 576 570 451 0 0 1920 1178 </string>
-	<key>NSWindow Frame iTerm Window 4</key>
-	<string>171 97 1024 556 0 0 1366 746 </string>
+	<string>419 143 570 451 0 0 2560 1417 </string>
+	<key>NeverWarnAboutMeta</key>
+	<true/>
 	<key>NeverWarnAboutShortLivedSessions_54B6567B-02F4-4BBA-BC83-23A10B989095</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -928,7 +915,7 @@
 			<key>Send Code When Idle</key>
 			<false/>
 			<key>Set Local Environment Vars</key>
-			<false/>
+			<true/>
 			<key>Shortcut</key>
 			<string></string>
 			<key>Silence Bell</key>
@@ -2506,6 +2493,8 @@
 			<string>/Users/bernerdschaefer</string>
 		</dict>
 	</array>
+	<key>NoSyncNeverRemindPrefsChangesCopy</key>
+	<true/>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -2554,7 +2543,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/bernerdschaefer/src/github.com/bernerdschaefer/dotfiles/iterm</string>
+	<string>/Users/bernerd/src/github.com/bernerdschaefer/dotfiles/iterm</string>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -2563,6 +2552,8 @@
 	<integer>8</integer>
 	<key>RightOption</key>
 	<integer>3</integer>
+	<key>SUAutomaticallyUpdate</key>
+	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedURL</key>
@@ -2570,7 +2561,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-09-22T08:44:55Z</date>
+	<date>2014-10-31T17:54:43Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -2622,6 +2613,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>1.0.0.20140629</string>
+	<string>2.0.0.20141022</string>
 </dict>
 </plist>
