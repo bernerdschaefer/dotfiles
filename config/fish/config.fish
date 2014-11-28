@@ -22,8 +22,8 @@ end
 # go setup
 if status --is-interactive
   set -x GOPATH ~
-  set -x PATH $PATH $GOPATH/bin
   set -x GOROOT /usr/local/opt/go/libexec
+  set -x PATH $PATH $GOPATH/bin $GOROOT/bin
 end
 
 # rbenv setup
@@ -31,6 +31,12 @@ if status --is-interactive
   set -x PATH $HOME/.rbenv/bin $PATH
 
   . (rbenv init - --no-rehash | psub)
+end
+
+if status --is-interactive
+  set -x DOCKER_HOST       tcp://192.168.59.103:2376
+  set -x DOCKER_TLS_VERIFY 1
+  set -x DOCKER_CERT_PATH  ~/.boot2docker/certs/boot2docker-vm
 end
 
 function fish_user_key_bindings

@@ -20,3 +20,7 @@ brew_install_or_upgrade 'brew-cask'
 
 brew cask install slack
 brew cask install java
+brew cask install vagrant
+brew cask install virtualbox
+brew cask install boot2docker
+brew cask install spotify
