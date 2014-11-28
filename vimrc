@@ -4,7 +4,8 @@ set nocompatible
 set shell=/bin/bash
 
 " set up golang plugin
-set rtp+=$GOROOT/misc/vim
+set rtp+=$HOME/.vim/plugins/vim-go
+let g:go_fmt_command = "goimports"
 
 " set up protobuf plugin
 set rtp+=$HOME/.vim/plugins/vim-protobuf/
@@ -15,6 +16,7 @@ set rtp+=$HOME/.vim/plugins/vimroom/
 syntax on
 filetype plugin indent on
 
+set backspace=start " allow backspace in insert mode (single line)
 set directory=/tmp
 set expandtab
 set hidden
@@ -22,11 +24,11 @@ set history=1000
 set incsearch
 set list
 set listchars=tab:▸\ ,trail:■
-set path=.,**,,$GOPATH/src,$GOROOT/src/pkg
+set path=.,**,, "$GOPATH/src,$GOROOT/src/pkg
 set showmode
 set shiftwidth=2
 set softtabstop=2
-set suffixesadd=.rb,.go,.scala
+set suffixesadd=.rb,.go,.scala,.clj
 set ruler
 set title
 set ttimeoutlen=50
