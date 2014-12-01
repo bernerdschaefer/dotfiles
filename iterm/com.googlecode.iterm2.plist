@@ -321,9 +321,9 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>1446 694 924 485 0 0 2560 1417 </string>
+	<string>391 211 924 485 0 0 1366 768 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>580 110 1400 1200 0 0 2560 1417 </string>
+	<string>2 4 1363 740 0 0 1366 745 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>580 842 570 451 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -924,7 +924,7 @@
 			<key>Log Directory</key>
 			<string></string>
 			<key>Minimum Contrast</key>
-			<real>0.0</real>
+			<real>0.13552083075046539</real>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
@@ -2627,7 +2627,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-11-26T17:39:59Z</date>
+	<date>2014-11-28T18:17:31Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
