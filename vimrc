@@ -5,7 +5,7 @@ set shell=/bin/bash
 
 " set up golang plugin
 set rtp+=$HOME/.vim/plugins/vim-go
-let g:go_fmt_command = "goimports"
+" let g:go_fmt_command = "goimports"
 
 " set up protobuf plugin
 set rtp+=$HOME/.vim/plugins/vim-protobuf/
