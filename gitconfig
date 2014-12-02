@@ -5,6 +5,8 @@
         helper = osxkeychain
 [hub]
         protocol = https
+[merge]
+        ff = only
 [push]
         default = current
 [color]
