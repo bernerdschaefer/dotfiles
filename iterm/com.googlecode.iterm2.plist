@@ -321,11 +321,11 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>391 211 924 485 0 0 1366 768 </string>
+	<string>1447 695 924 485 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>2 4 1363 740 0 0 1366 745 </string>
+	<string>580 110 1400 1200 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>580 842 570 451 0 0 2560 1417 </string>
+	<string>582 859 570 451 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>419 143 570 451 0 0 2560 1417 </string>
 	<key>NeverWarnAboutMeta</key>
@@ -528,7 +528,7 @@
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
-			<string></string>
+			<string>/usr/local/bin/tmux</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -550,7 +550,7 @@
 			<key>Cursor Type</key>
 			<integer>2</integer>
 			<key>Custom Command</key>
-			<string>No</string>
+			<string>Yes</string>
 			<key>Custom Directory</key>
 			<string>No</string>
 			<key>Default Bookmark</key>
@@ -2627,7 +2627,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-11-28T18:17:31Z</date>
+	<date>2014-12-02T17:54:30Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
