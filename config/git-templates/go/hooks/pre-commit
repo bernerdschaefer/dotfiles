@@ -3,6 +3,9 @@
 # pre-commit hook which verifies that changes are formatted w/ gofmt and pass
 # go vet.
 
+# If a bin/vet file exists, use that instead.
+[[ -x bin/vet ]] && exec bin/vet
+
 function checkfmt() {
   unformatted=$(gofmt -l $*)
   [ -z "$unformatted" ] && return 0
