@@ -50,3 +50,11 @@ let g:vimroom_ctermbackground='white'
 " interrobangs‽
 digraph !? 8253
 digraph ?! 8253
+
+" generate help tags for configured plugins with:
+"   :call PluginHelpTags()
+function! PluginHelpTags()
+  for doc in split(globpath("$HOME/.vim/plugins/", '**/doc'), '\n')
+    silent! execute 'helptags' doc
+  endfor
+endfunction
