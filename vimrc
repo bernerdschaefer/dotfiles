@@ -3,15 +3,8 @@ set nocompatible
 " don't use other fancy shells within vim
 set shell=/bin/bash
 
-" set up golang plugin
-set rtp+=$HOME/.vim/plugins/vim-go
-" let g:go_fmt_command = "goimports"
-
-" set up protobuf plugin
-set rtp+=$HOME/.vim/plugins/vim-protobuf/
-
-" set up vimroom plugin
-set rtp+=$HOME/.vim/plugins/vimroom/
+" add plugins
+set rtp+=$HOME/.vim/plugins/*
 
 syntax on
 filetype plugin indent on
