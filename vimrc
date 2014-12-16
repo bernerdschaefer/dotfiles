@@ -20,11 +20,11 @@ set incsearch
 set list
 set listchars=tab:▸\ ,trail:■
 set path=.,**,,
-set showmode
+set ruler
 set shiftwidth=2
+set showmode
 set softtabstop=2
 set suffixesadd=.rb,.go,.scala,.clj
-set ruler
 set title
 set ttimeoutlen=50
 set wildmenu
