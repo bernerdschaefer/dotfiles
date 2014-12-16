@@ -27,6 +27,7 @@ set softtabstop=2
 set suffixesadd=.rb,.go,.scala,.clj
 set title
 set ttimeoutlen=50
+set wildignore+=*/target/classes/*
 set wildmenu
 set wildmode=list:longest
 
