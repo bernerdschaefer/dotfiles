@@ -19,7 +19,7 @@ set history=1000
 set incsearch
 set list
 set listchars=tab:▸\ ,trail:■
-set path=.,**,, "$GOPATH/src,$GOROOT/src/pkg
+set path=.,**,,
 set showmode
 set shiftwidth=2
 set softtabstop=2
