@@ -3,8 +3,10 @@ set nocompatible
 " don't use other fancy shells within vim
 set shell=/bin/bash
 
-" add plugins
-set rtp+=$HOME/.vim/plugins/*
+" inject plugins into runtime path, keeping standard
+" after/ paths at the end
+set rtp-=$VIM/vimfiles/after,$HOME/.vim/after
+set rtp+=$HOME/.vim/plugins/*,$VIM/vimfiles/after,$HOME/.vim/after
 
 syntax on
 filetype plugin indent on
