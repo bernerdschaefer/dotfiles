@@ -28,6 +28,8 @@ set suffixesadd=.rb,.go,.scala,.clj
 set title
 set ttimeoutlen=50
 set wildignore+=*/target/classes/*
+set wildignore+=*/node_modules/*
+set wildignore+=*/bower_components/*
 set wildmenu
 set wildmode=list:longest
 
