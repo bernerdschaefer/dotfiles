@@ -248,7 +248,7 @@
 	<key>DimInactiveSplitPanes</key>
 	<true/>
 	<key>DimOnlyText</key>
-	<false/>
+	<true/>
 	<key>DisableFullscreenTransparency</key>
 	<false/>
 	<key>EnableRendezvous</key>
@@ -262,15 +262,15 @@
 	<key>HiddenAdvancedFontRendering</key>
 	<false/>
 	<key>HideActivityIndicator</key>
-	<false/>
+	<true/>
 	<key>HideMenuBarInFullscreen</key>
 	<true/>
 	<key>HideScrollbar</key>
 	<false/>
 	<key>HideTab</key>
-	<true/>
+	<false/>
 	<key>HighlightTabLabels</key>
-	<true/>
+	<false/>
 	<key>HotKeyBookmark</key>
 	<string>54B6567B-02F4-4BBA-BC83-23A10B989095</string>
 	<key>HotKeyTogglesWindow</key>
@@ -320,12 +320,17 @@
 	<array/>
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
+	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
+	<dict>
+		<key>TB Is Shown</key>
+		<integer>1</integer>
+	</dict>
 	<key>NSWindow Frame Preferences</key>
-	<string>1447 695 924 485 0 0 2560 1417 </string>
+	<string>391 194 924 485 0 0 1366 745 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>580 110 1400 1200 0 0 2560 1417 </string>
+	<string>0 4 1366 741 0 0 1366 745 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>582 859 570 451 0 0 2560 1417 </string>
+	<string>5 344 570 388 0 0 1366 745 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>419 143 570 451 0 0 2560 1417 </string>
 	<key>NeverWarnAboutMeta</key>
@@ -337,6 +342,18 @@
 		<dict>
 			<key>ASCII Anti Aliased</key>
 			<true/>
+			<key>AWDS Pane Directory</key>
+			<string></string>
+			<key>AWDS Pane Option</key>
+			<string>Recycle</string>
+			<key>AWDS Tab Directory</key>
+			<string></string>
+			<key>AWDS Tab Option</key>
+			<string>Recycle</string>
+			<key>AWDS Window Directory</key>
+			<string></string>
+			<key>AWDS Window Option</key>
+			<string>No</string>
 			<key>Allow Title Reporting</key>
 			<false/>
 			<key>Ambiguous Double Width</key>
@@ -526,7 +543,7 @@
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>80</integer>
+			<integer>193</integer>
 			<key>Command</key>
 			<string>/usr/local/bin/tmux</string>
 			<key>Cursor Color</key>
@@ -550,9 +567,9 @@
 			<key>Cursor Type</key>
 			<integer>2</integer>
 			<key>Custom Command</key>
-			<string>Yes</string>
-			<key>Custom Directory</key>
 			<string>No</string>
+			<key>Custom Directory</key>
+			<string>Advanced</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Disable Printing</key>
@@ -598,33 +615,12 @@
 					<key>Text</key>
 					<string>0x1f</string>
 				</dict>
-				<key>0x31-0x100000</key>
-				<dict>
-					<key>Action</key>
-					<integer>11</integer>
-					<key>Text</key>
-					<string>0x2 0x31</string>
-				</dict>
-				<key>0x32-0x100000</key>
-				<dict>
-					<key>Action</key>
-					<integer>11</integer>
-					<key>Text</key>
-					<string>0x2 0x32</string>
-				</dict>
 				<key>0x32-0x40000</key>
 				<dict>
 					<key>Action</key>
 					<integer>11</integer>
 					<key>Text</key>
 					<string>0x00</string>
-				</dict>
-				<key>0x33-0x100000</key>
-				<dict>
-					<key>Action</key>
-					<integer>11</integer>
-					<key>Text</key>
-					<string>0x2 0x33</string>
 				</dict>
 				<key>0x33-0x40000</key>
 				<dict>
@@ -667,34 +663,6 @@
 					<integer>11</integer>
 					<key>Text</key>
 					<string>0x7f</string>
-				</dict>
-				<key>0x5b-0x100000</key>
-				<dict>
-					<key>Action</key>
-					<integer>11</integer>
-					<key>Text</key>
-					<string>0x02 0x1b 0x5b 0x44</string>
-				</dict>
-				<key>0x5d-0x100000</key>
-				<dict>
-					<key>Action</key>
-					<integer>11</integer>
-					<key>Text</key>
-					<string>0x2 0x1b 0x5b 0x43</string>
-				</dict>
-				<key>0x7b-0x120000</key>
-				<dict>
-					<key>Action</key>
-					<integer>11</integer>
-					<key>Text</key>
-					<string>0x2 0x70</string>
-				</dict>
-				<key>0x7d-0x120000</key>
-				<dict>
-					<key>Action</key>
-					<integer>11</integer>
-					<key>Text</key>
-					<string>0x2 0x6e</string>
 				</dict>
 				<key>0xf700-0x220000</key>
 				<dict>
@@ -942,7 +910,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>2</integer>
 			<key>Rows</key>
-			<integer>25</integer>
+			<integer>44</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -1090,7 +1058,7 @@
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
-			<false/>
+			<true/>
 			<key>Use Bold Font</key>
 			<true/>
 			<key>Use Bright Bold</key>
@@ -1104,7 +1072,7 @@
 			<key>Visual Bell</key>
 			<false/>
 			<key>Window Type</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Working Directory</key>
 			<string>/Users/bernerdschaefer</string>
 		</dict>
@@ -2627,7 +2595,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-12-02T17:54:30Z</date>
+	<date>2015-03-13T17:30:12Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -2641,7 +2609,7 @@
 	<key>SplitPaneDimmingAmount</key>
 	<real>0.43568709492683411</real>
 	<key>SwitchTabModifier</key>
-	<integer>6</integer>
+	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
 	<integer>6</integer>
 	<key>TabViewType</key>
