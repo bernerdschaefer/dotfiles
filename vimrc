@@ -42,14 +42,6 @@ hi TablineFill  cterm=none ctermbg=7
 hi TablineSel   cterm=bold ctermfg=4 ctermbg=none
 hi VertSplit    cterm=bold ctermfg=14 ctermbg=none
 
-" go indendation display settings
-au BufRead,BufNewFile *.go            setlocal makeprg=go\ build noet ts=2 sw=2 listchars=tab:\ \ ,trail:■
-au BufRead,BufNewFile *.{h,hpp,c,cpp} setlocal noet ts=2 sw=2 listchars=tab:\ \ ,trail:■
-
-" default .md to markdown
-au BufRead,BufNewFile *.{md,markdown} setlocal ft=markdown
-au BufRead,BufNewFile *.{md,markdown} syntax match Comment /\%^---\_.\{-}---$/
-
 let g:vimroom_ctermbackground='white'
 
 " interrobangs‽
