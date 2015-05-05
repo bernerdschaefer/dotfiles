@@ -14,6 +14,7 @@ filetype plugin indent on
 set backspace=start " allow backspace in insert mode (single line)
 set directory=/tmp
 set expandtab
+set grepprg='ag'
 set hidden
 set history=1000
 set incsearch
