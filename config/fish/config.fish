@@ -33,6 +33,8 @@ if status --is-interactive
   . (rbenv init - --no-rehash | psub)
 end
 
+set -x PATH .git/safe/../../bin $PATH
+
 if status --is-interactive
   set -x DOCKER_HOST       tcp://192.168.59.103:2376
   set -x DOCKER_TLS_VERIFY 1
