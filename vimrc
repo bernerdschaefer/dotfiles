@@ -25,7 +25,7 @@ set ruler
 set shiftwidth=2
 set showmode
 set softtabstop=2
-set suffixesadd=.rb,.go,.scala,.clj
+set suffixesadd=.go,.scala,.clj,.rb,.haml
 set title
 set ttimeoutlen=50
 set wildignore+=*/target/classes/*
