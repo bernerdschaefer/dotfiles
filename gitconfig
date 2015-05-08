@@ -13,3 +13,5 @@
         ui = true
 [core]
         excludesfile = /Users/bernerdschaefer/.gitignore_global
+[rebase]
+        autosquash = true
