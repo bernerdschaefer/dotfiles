@@ -1,0 +1,11 @@
+--- dwm-6.0-orig/config.def.h	2015-05-28 05:36:03.836299318 +0200
++++ dwm-6.0/config.def.h	2015-05-28 05:36:18.226812367 +0200
+@@ -47,7 +47,7 @@
+ 
+ /* commands */
+ static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+-static const char *termcmd[]  = { "uxterm", NULL };
++static const char *termcmd[]  = { "st", NULL };
+ 
+ static Key keys[] = {
+ 	/* modifier                     key        function        argument */

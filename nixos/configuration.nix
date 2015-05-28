@@ -49,13 +49,16 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     acpi
-    dwm
     chromiumDev
     git
     st
     terminator
     tmux
     vim
+
+    (lib.overrideDerivation dwm (attrs: {
+      patches = [ ./dwm/dwm-st.patch ];
+    }))
   ];
 
   # Enable acpi
@@ -70,7 +73,7 @@
 
       session = [{
         name = "dwm";
-        start = "${pkgs.dwm}/bin/dwm";
+        start = "/run/current-system/sw/bin/dwm";
       }];
     };
 
