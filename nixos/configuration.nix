@@ -47,7 +47,9 @@
 
   nixpkgs.config.packageOverrides = pkgs: {
     dwm = pkgs.dwm.override {
-      patches = [ ./dwm/dwm-st.patch ];
+      patches =
+        [ ./dwm/dwm-st.patch
+          ./dwm/dwm-6.0-cmd-for-modifier.diff ];
     };
 
     st = pkgs.callPackage ./st {
