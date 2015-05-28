@@ -1,20 +1,10 @@
-# # nix setup (currently disabled)
-# if status --is-login
-#   set -l nix_link "$HOME/.nix-profile"
-#
-#   set -x PATH $nix_link/bin $nix_link/sbin $PATH
-#   set -x NIX_PATH $NIX_PATH nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs
-#
-#   set -x GOROOT "$HOME/.nix-profile/share/go"
-# end
-
-if status --is-login
+if status --is-interactive
   set fish_greeting ""
 
   set -x GOPATH ~
 
-  # hub alias
-  alias git=hub
+  # TODO: re-enable
+  # alias git=hub
 
   set -x EDITOR (which vim)
 end
@@ -30,16 +20,11 @@ end
 if status --is-interactive
   set -x PATH $HOME/.rbenv/bin $PATH
 
-  . (rbenv init - --no-rehash | psub)
+  # TODO: re-enable ?
+  # . (rbenv init - --no-rehash | psub)
 end
 
 set -x PATH .git/safe/../../bin $PATH
-
-if status --is-interactive
-  set -x DOCKER_HOST       tcp://192.168.59.103:2376
-  set -x DOCKER_TLS_VERIFY 1
-  set -x DOCKER_CERT_PATH  ~/.boot2docker/certs/boot2docker-vm
-end
 
 function fish_user_key_bindings
   bind \e. 'history-token-search-backward'

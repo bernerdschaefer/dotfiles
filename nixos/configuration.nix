@@ -63,8 +63,12 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     acpi
+    man_db
+    which
+
     chromiumDev
     dwm
+    fish
     git
     st
     terminator
@@ -158,6 +162,6 @@
     extraGroups = [ "wheel" ];
     createHome = true;
     home = "/home/bernerd";
-    shell = "/run/current-system/sw/bin/bash";
+    shell = "/run/current-system/sw/bin/fish";
   };
 }
