@@ -5,7 +5,7 @@ in rec {
   git = pkgs.git;
   hub = pkgs.gitAndTools.hub;
 
-  go = pkgs.go;
+  go = pkgs.go_1_4;
   fish = pkgs.fish;
 
   mercurial = pkgs.mercurial;

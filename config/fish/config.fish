@@ -1,8 +1,6 @@
 if status --is-interactive
   set fish_greeting ""
 
-  set -x GOPATH ~
-
   # TODO: re-enable
   # alias git=hub
 
@@ -12,7 +10,7 @@ end
 # go setup
 if status --is-interactive
   set -x GOPATH ~
-  set -x GOROOT /usr/local/opt/go/libexec
+  set -x GOROOT ~/.nix-profile/share/go
   set -x PATH $PATH $GOPATH/bin $GOROOT/bin
 end
 
