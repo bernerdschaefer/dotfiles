@@ -45,20 +45,29 @@
   #   defaultLocale = "en_US.UTF-8";
   # };
 
+  nixpkgs.config.packageOverrides = pkgs: {
+    dwm = pkgs.dwm.override {
+      patches = [ ./dwm/dwm-st.patch ];
+    };
+
+    st = pkgs.callPackage ./st {
+      patches =
+        [ ./st/st-solarized-light.diff
+          ./st/st-0.5-no-bold-colors.diff ];
+    };
+  };
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     acpi
     chromiumDev
+    dwm
     git
     st
     terminator
     tmux
     vim
-
-    (lib.overrideDerivation dwm (attrs: {
-      patches = [ ./dwm/dwm-st.patch ];
-    }))
   ];
 
   # Enable acpi

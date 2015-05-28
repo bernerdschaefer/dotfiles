@@ -1,0 +1,12 @@
+diff --git a/st.c b/st.c
+--- a/st.c
++++ b/st.c
+@@ -3203,7 +3203,7 @@
+ 	if(base.mode & ATTR_BOLD) {
+ 		if(BETWEEN(base.fg, 0, 7)) {
+ 			/* basic system colors */
+-			fg = &dc.col[base.fg + 8];
++			fg = &dc.col[base.fg];
+ 		} else if(BETWEEN(base.fg, 16, 195)) {
+ 			/* 256 colors */
+ 			fg = &dc.col[base.fg + 36];
