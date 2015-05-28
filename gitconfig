@@ -2,7 +2,7 @@
         name = Bernerd Schaefer
         email = bj.schaefer@gmail.com
 [credential]
-        helper = osxkeychain
+        helper = store
 [hub]
         protocol = https
 [merge]
