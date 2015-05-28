@@ -83,6 +83,13 @@
   services.xserver = {
     enable = true;
 
+    displayManager = {
+      slim = {
+        defaultUser = "bernerd";
+        enable = true;
+      };
+    };
+
     windowManager = {
       default = "none";
 
