@@ -39,11 +39,11 @@
   networking.wireless.enable = true;  # Enables wireless.
 
   # Select internationalisation properties.
-  # i18n = {
-  #   consoleFont = "lat9w-16";
-  #   consoleKeyMap = "us";
-  #   defaultLocale = "en_US.UTF-8";
-  # };
+  i18n = {
+    # consoleFont = "lat9w-16";
+    consoleKeyMap = "us";
+    defaultLocale = "en_US.UTF-8";
+  };
 
   nixpkgs.config.packageOverrides = pkgs: {
     dwm = pkgs.dwm.override {
@@ -154,6 +154,8 @@
 
   services.xserver.layout = "us";
   services.xserver.xkbOptions = "ctrl:nocaps";
+
+  time.timeZone = "America/Los_Angeles";
 
   users.extraUsers.bernerd = {
     name = "bernerd";
