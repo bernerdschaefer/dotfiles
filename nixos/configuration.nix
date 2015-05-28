@@ -91,14 +91,58 @@
       xterm.enable = false;
     };
 
+    modules = [ pkgs.xf86_input_mtrack ];
+
+    config =
+      ''
+        Section "InputClass"
+          MatchIsTouchpad "on"
+          Identifier      "Touchpads"
+          Driver "mtrack"
+          Option "Sensitivity" "0.55"
+          Option "FingerHigh" "12"
+          Option "FingerLow" "1"
+          Option "IgnoreThumb" "true"
+          Option "IgnorePalm" "true"
+          Option "TapButton1" "1"
+          Option "TapButton2" "0"
+          Option "TapButton3" "0"
+          Option "TapButton4" "0"
+          Option "ClickFinger1" "1"
+          Option "ClickFinger2" "3"
+          Option "ClickFinger3" "3"
+          Option "ButtonMoveEmulate" "false"
+          Option "ButtonIntegrated" "true"
+          Option "ClickTime" "25"
+          Option "BottomEdge" "25"
+          Option "ScrollUpButton" "5"
+          Option "ScrollDownButton" "4"
+          Option "ScrollLeftButton" "7"
+          Option "ScrollRightButton" "6"
+          Option "SwipeLeftButton" "8"
+          Option "SwipeRightButton" "9"
+          Option "SwipeUpButton" "0"
+          Option "SwipeDownButton" "0"
+          Option "ScrollDistance" "75"
+        EndSection
+      '';
+
     multitouch = {
-      enable = true;
+      enable = false;
       invertScroll = true;
     };
 
     synaptics = {
-      enable = true;
+      enable = false;
+      horizontalScroll = true;
+      minSpeed = "0.7";
+      palmDetect = true;
       twoFingerScroll = true;
+      additionalOptions = ''
+        Option "VertScrollDelta"     "-111"
+        Option "HorizScrollDelta"    "-111"
+        Option "AreaBottomEdge"      "4000"
+      '';
     };
   };
 
