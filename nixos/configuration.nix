@@ -67,6 +67,7 @@
     which
 
     chromiumDev
+    dmenu
     dwm
     fish
     git
