@@ -92,8 +92,11 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
+    autorun = true;
 
     displayManager = {
+      desktopManagerHandlesLidAndPower = false;
+
       slim = {
         defaultUser = "bernerd";
         enable = true;
