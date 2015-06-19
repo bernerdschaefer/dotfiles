@@ -72,11 +72,14 @@
     dwm
     fish
     git
+    slock
     st
     terminator
     tmux
     vim
   ];
+
+  security.setuidPrograms = [ "slock" ];
 
   sound = {
     enable = true;
