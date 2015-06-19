@@ -14,6 +14,8 @@ in rec {
 
   silver-searcher = pkgs.silver-searcher;
 
+  gitsh = pkgs.callPackage ./nix/gitsh {};
+
   rcm = stdenv.mkDerivation rec {
     name = "rcm-${version}";
     version = "1.2.3";
