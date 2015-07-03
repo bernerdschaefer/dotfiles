@@ -64,6 +64,7 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     acpi
+    acpid
     man_db
     which
 
