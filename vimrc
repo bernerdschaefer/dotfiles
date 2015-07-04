@@ -1,7 +1,7 @@
 set nocompatible
 
 " don't use other fancy shells within vim
-set shell=/bin/bash
+set shell=/bin/sh
 
 " inject plugins into runtime path, keeping standard
 " after/ paths at the end
