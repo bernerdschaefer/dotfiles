@@ -33,6 +33,12 @@
     }
   ];
 
+  # In stage-1-init, the resume device seems to
+  # not have appeared when it's checked.
+  # Adding some wait time allows hibernate / resume
+  # to work.
+  boot.initrd.postDeviceCommands = "sleep 5";
+
   boot.loader.grub.device = "/dev/sda";
 
   # networking.hostName = "nixos"; # Define your hostname.
