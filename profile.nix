@@ -14,6 +14,12 @@ in rec {
 
   silver-searcher = pkgs.silver-searcher;
 
+  heroku = pkgs.callPackage ./nix/heroku-toolbelt {};
+
+  parity = pkgs.callPackage ./nix/parity {
+    heroku = heroku;
+  };
+
   gitsh = pkgs.callPackage ./nix/gitsh {};
 
   rcm = stdenv.mkDerivation rec {
