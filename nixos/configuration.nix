@@ -56,6 +56,7 @@
     dwm = pkgs.dwm.override {
       patches =
         [ ./dwm/dwm-st.patch
+          ./dwm/dwm-6.0-font-size.diff
           ./dwm/dwm-6.0-cmd-for-modifier.diff ];
     };
 
@@ -85,6 +86,8 @@
     tmux
     vim
   ];
+
+  fonts.fonts = [ pkgs.terminus_font ];
 
   security.setuidPrograms = [ "slock" ];
 
