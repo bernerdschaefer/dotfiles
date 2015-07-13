@@ -106,6 +106,12 @@
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql94;
+    authentication = pkgs.lib.mkForce ''
+      local all all              ident
+      host  all bernerd 127.0.0.1/32 trust
+      host  all all 127.0.0.1/32 md5
+      host  all all ::1/128      md5
+    '';
   };
 
   # Enable the X11 windowing system.
