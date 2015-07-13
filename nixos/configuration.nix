@@ -103,6 +103,11 @@
   # Enable acpi
   services.acpid.enable = true;
 
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql94;
+  };
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
