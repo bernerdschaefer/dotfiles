@@ -16,6 +16,8 @@ in rec {
 
   heroku = pkgs.callPackage ./nix/heroku-toolbelt {};
 
+  tmate = pkgs.callPackage ./nix/tmate {};
+
   parity = pkgs.callPackage ./nix/parity {
     heroku = heroku;
   };
