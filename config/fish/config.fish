@@ -14,14 +14,6 @@ if status --is-interactive
   set -x PATH $PATH $GOPATH/bin $GOROOT/bin
 end
 
-# rbenv setup
-if status --is-interactive
-  set -x PATH $HOME/.rbenv/bin $PATH
-
-  # TODO: re-enable ?
-  # . (rbenv init - --no-rehash | psub)
-end
-
 set -x PATH .git/safe/../../bin $PATH
 
 function fish_user_key_bindings
