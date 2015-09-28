@@ -1,7 +1,7 @@
 if status --is-interactive
   set fish_greeting ""
 
-  set -x EDITOR (which vim)
+  set -x EDITOR vim
 end
 
 # Go configuration
