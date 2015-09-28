@@ -12,6 +12,6 @@
 [color]
         ui = true
 [core]
-        excludesfile = /Users/bernerdschaefer/.gitignore_global
+        excludesfile = ~/.gitignore_global
 [rebase]
         autosquash = true
