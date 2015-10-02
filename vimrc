@@ -36,8 +36,8 @@ set wildmode=list:longest
 
 " some custom colors
 hi NonText      ctermfg=14 ctermbg=none
-hi StatusLine   cterm=underline ctermfg=0 ctermbg=none
-hi StatusLineNC cterm=underline ctermfg=14 ctermbg=none
+hi StatusLine   cterm=underline ctermfg=14 ctermbg=none
+hi StatusLineNC cterm=underline ctermfg=0 ctermbg=none
 hi Tabline      cterm=none
 hi TablineFill  cterm=none ctermbg=7
 hi TablineSel   cterm=bold ctermfg=4 ctermbg=none
