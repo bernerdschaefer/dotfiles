@@ -16,6 +16,8 @@ in rec {
 
   silver-searcher = pkgs.silver-searcher;
 
+  nodejs = pkgs.nodejs;
+
   heroku = pkgs.callPackage ./nix/heroku-toolbelt {};
 
   tmate = pkgs.callPackage ./nix/tmate {};
