@@ -43,8 +43,6 @@ hi TablineFill  cterm=none ctermbg=7
 hi TablineSel   cterm=bold ctermfg=4 ctermbg=none
 hi VertSplit    cterm=bold ctermfg=14 ctermbg=none
 
-let g:vimroom_ctermbackground='white'
-
 " interrobangs‽
 digraph !? 8253
 digraph ?! 8253
