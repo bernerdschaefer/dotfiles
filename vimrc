@@ -31,6 +31,7 @@ set ttimeoutlen=50
 set wildignore+=*/target/classes/*
 set wildignore+=*/node_modules/*
 set wildignore+=*/bower_components/*
+set wildignore+=*/vendor/bundle/*
 set wildmenu
 set wildmode=list:longest
 
