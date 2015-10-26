@@ -8,7 +8,7 @@ set shell=/bin/sh
 set rtp-=$VIM/vimfiles/after,$HOME/.vim/after
 set rtp+=$HOME/.vim/plugins/*,$VIM/vimfiles/after,$HOME/.vim/after
 
-syntax on
+syntax off
 filetype plugin indent on
 
 set backspace=start " allow backspace in insert mode (single line)
