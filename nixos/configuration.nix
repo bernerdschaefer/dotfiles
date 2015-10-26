@@ -103,6 +103,8 @@
   # Enable acpi
   services.acpid.enable = true;
 
+  services.virtualboxHost.enable = true;
+
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql94;
