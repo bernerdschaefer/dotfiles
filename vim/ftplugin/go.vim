@@ -1,4 +1,5 @@
-setlocal makeprg=go\ build
+compiler go
+
 setlocal listchars=tab:\ \ ,trail:■
 setlocal noexpandtab
 setlocal shiftwidth=2
