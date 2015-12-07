@@ -20,6 +20,7 @@ set history=1000
 set incsearch
 set list
 set listchars=tab:▸\ ,trail:■
+set nojoinspaces
 set path=.,**,,
 set ruler
 set shiftwidth=2
