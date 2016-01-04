@@ -11,6 +11,10 @@
       ./openvpn-config/default.nix
     ];
 
+  nix = {
+    trustedBinaryCaches = [ "https://hydra.nixos.org" ];
+  };
+
   nixpkgs.config = {
     # enable support for broadcom_sta
     allowUnfree = true;
