@@ -28,6 +28,8 @@ in rec {
 
   gitsh = pkgs.callPackage ./nix/gitsh {};
 
+  ruby-install = pkgs.callPackage ./nix/ruby-install {};
+
   rcm = stdenv.mkDerivation rec {
     name = "rcm-${version}";
     version = "1.2.3";

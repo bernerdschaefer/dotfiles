@@ -7,12 +7,16 @@ in rec {
     version = "0.1";
     src = ./.;
     buildInputs = [
+      pkgs.chruby
       pkgs.nodejs
-      pkgs.qt5.webkit
+      pkgs.qt5.qtwebkit
       pkgs.zlib
       pkgs.openssl
-      pkgs.ruby_2_2
-      pkgs.bundler
     ];
+
+    shellHook = ''
+      source ${pkgs.chruby}/share/chruby/chruby.sh
+      source ${pkgs.chruby}/share/chruby/auto.sh
+    '';
   };
 }
