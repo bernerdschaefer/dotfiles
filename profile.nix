@@ -3,6 +3,7 @@ let
   stdenv = pkgs.stdenv;
 in rec {
   git = pkgs.git;
+  gnumake = pkgs.gnumake;
   hub = pkgs.gitAndTools.hub;
 
   go = pkgs.go_1_5;
