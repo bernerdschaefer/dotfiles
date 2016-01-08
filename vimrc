@@ -49,6 +49,10 @@ hi VertSplit    cterm=bold ctermfg=14 ctermbg=none
 digraph !? 8253
 digraph ?! 8253
 
+" enable emacs key mappings on the command-line
+cnoremap <C-N> <Down>
+cnoremap <C-P> <Up>
+
 " generate help tags for configured plugins with:
 "   :call PluginHelpTags()
 function! PluginHelpTags()
