@@ -53,6 +53,9 @@ digraph ?! 8253
 cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
 
+" resize splits when vim is resized
+autocmd VimResized * wincmd =
+
 " generate help tags for configured plugins with:
 "   :call PluginHelpTags()
 function! PluginHelpTags()
