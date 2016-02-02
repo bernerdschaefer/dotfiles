@@ -11,6 +11,11 @@ in rec {
 
   jq = pkgs.jq;
 
+  # screenshot and screencast utilities
+  slop = pkgs.slop;
+  byzanz = pkgs.byzanz;
+  maim = pkgs.maim;
+
   mercurial = pkgs.mercurial;
   cloc = pkgs.cloc;
   ctags = pkgs.ctags;
