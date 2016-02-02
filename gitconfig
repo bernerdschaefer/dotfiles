@@ -15,3 +15,5 @@
         excludesfile = ~/.gitignore_global
 [rebase]
         autosquash = true
+[rerere]
+        enabled = true
