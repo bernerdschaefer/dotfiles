@@ -22,7 +22,11 @@ in rec {
 
   silver-searcher = pkgs.silver-searcher;
 
+  elixir = pkgs.elixir;
   nodejs = pkgs.nodejs;
+
+  rust = pkgs.rustPlatform.rustc;
+  cargo = pkgs.cargo;
 
   heroku = pkgs.callPackage ./nix/heroku-toolbelt {};
 
