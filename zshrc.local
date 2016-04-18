@@ -3,7 +3,7 @@ autoload -U select-word-style
 select-word-style bash
 
 # Set PATH order
-export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 # Go configuration
 export GOPATH="$HOME"
