@@ -12,7 +12,7 @@
 [color]
         ui = true
 [core]
-        excludesfile = ~/.gitignore_global
+        excludesfile = ~/.gitignore
 [rebase]
         autosquash = true
 [rerere]
