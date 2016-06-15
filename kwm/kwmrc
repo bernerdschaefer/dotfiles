@@ -1,0 +1,35 @@
+# Set default values for screen padding.
+#
+# The two padding configurations can be toggled for switching
+# between large and small monitors.
+#
+# Follow https://github.com/koekeishiya/kwm/issues/154 for alternatives.
+kwmc config padding 80 80 200 200
+# kwmc config padding 40 20 20 20
+
+# Set default values for container gaps
+kwmc config gap 80 80
+
+# Let Kwm listen for hotkeys
+kwmc config hotkeys on
+
+# Launch iTerm2
+kwmc bind shift+cmd-return sys open -na /Users/bernerd/Applications/iTerm.app
+
+# Set Space Tiling Mode To BSP
+kwmc bind cmd+ctrl-t space -t bsp
+
+# Set Space Tiling Mode To Monocle
+kwmc bind cmd+ctrl-m space -t monocle
+
+# Set Space Tiling Mode To Floating
+kwmc bind cmd+ctrl-d space -t float
+
+# Move focus to next window
+kwmc bind cmd-j window -f next
+
+# Swap with next window
+kwmc bind shift+cmd-j window -s next
+
+# New splits become the left leaf-node
+kwmc config spawn left
