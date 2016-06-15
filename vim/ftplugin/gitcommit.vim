@@ -1,1 +1,3 @@
 syntax on
+
+setlocal spell
