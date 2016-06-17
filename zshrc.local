@@ -8,4 +8,6 @@ export PATH="$HOME/bin:$PATH"
 # Go configuration
 export GOPATH="$HOME"
 
-alias gpg=gpg2
+# GPG2 configuration
+alias gpg="gpg2"
+GPG_TTY=$(tty)
