@@ -3,12 +3,16 @@
         email = bj.schaefer@gmail.com
 [credential]
         helper = store
+[commit]
+        gpgsign = true
 [hub]
         protocol = https
 [merge]
         ff = only
 [push]
         default = current
+[gpg]
+        program = gpg2
 [color]
         ui = true
 [core]
