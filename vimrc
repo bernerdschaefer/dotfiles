@@ -45,9 +45,7 @@ hi TablineFill  cterm=none ctermbg=7
 hi TablineSel   cterm=bold ctermfg=4 ctermbg=none
 hi VertSplit    cterm=bold ctermfg=14 ctermbg=none
 
-" interrobangs‽
-digraph !? 8253
-digraph ?! 8253
+digraph ?! 8253 " ‽ - interrobang
 
 " enable emacs key mappings on the command-line
 cnoremap <C-N> <Down>
