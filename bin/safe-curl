@@ -1,0 +1,52 @@
+#!/bin/bash
+#
+# safe-curl detects when it is piped to a shell (or sudo),
+# validates that the URL is secure,
+# and displays the contents for review before executing the command.
+#
+# For best use, add `alias curl=safe-curl` to your shell configuration,
+# and copy-paste those `curl | sh` snippets at will!
+#
+# Currently tested on Mac OS X.
+
+pid=$$
+stdout_info=$(lsof -a -d1 -p $pid)
+
+pipe_id=$(awk '$5 == "PIPE" { print $6 }' <<<"$stdout_info")
+
+if [ -z "$pipe_id" ]; then
+  exec curl "$@"
+fi
+
+pipe_command_name=$(lsof -d0 | grep "$pipe_id" | cut -d" " -f1)
+
+# If we are unable to find the other end of the pipe
+# it's likely because we have insufficient priveledge to see it,
+# so assume the command name is sudo.
+pipe_command_name=${pipe_command_name:-sudo}
+
+case "$pipe_command_name" in
+  sudo|*sh )
+    ;;
+  * )
+    exec curl "$@"
+esac
+
+if [[ ! "$*" =~ "https://" ]]; then
+  echo "Scripts should be loaded over HTTP should not be trusted." >&2
+  echo "If you cannot find a secure link, or wish to continue anyway," >&2
+  echo "re-run the command with ALLOW_INSECURE=1 set, like:" >&2
+  echo "  ALLOW_INSECURE=1 curl ..." >&2
+  exit 1
+fi
+
+TMPFILE=`mktemp /tmp/curlsh.XXXXXX`
+
+curl -S "$@" >"$TMPFILE"
+
+if ! "$EDITOR" "$TMPFILE" &>/dev/tty; then
+  echo "Script contents rejected, aborting" >&2
+  exit 1
+fi
+
+cat "$TMPFILE"
