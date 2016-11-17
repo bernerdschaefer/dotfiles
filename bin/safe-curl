@@ -33,9 +33,9 @@ case "$pipe_command_name" in
 esac
 
 if [[ ! "$*" =~ "https://" ]]; then
-  echo "Scripts should be loaded over HTTP should not be trusted." >&2
+  echo "Scripts loaded over HTTP should not be trusted." >&2
   echo "If you cannot find a secure link, or wish to continue anyway," >&2
-  echo "re-run the command with ALLOW_INSECURE=1 set, like:" >&2
+  echo "re-run the command with ALLOW_INSECURE=1 set:" >&2
   echo "  ALLOW_INSECURE=1 curl ..." >&2
   exit 1
 fi
