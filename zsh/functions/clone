@@ -1,0 +1,8 @@
+clone() {
+  repo=$1
+  dir="$HOME"/src/github.com/"$repo"
+
+  mkdir -p "$dir"
+  hub clone "$repo" "$dir"
+  cd "$dir"
+}
