@@ -1,0 +1,16 @@
+# Enable kwm compatibility mode
+khd kwm on
+
+shift+cmd-return: open -na /Applications/iTerm.app
+
+# Set space to tiling
+cmd+ctrl-t: /usr/local/bin/kwmc space -t bsp
+
+# Set space to monocle
+cmd+ctrl-m: /usr/local/bin/kwmc space -t monocle
+
+# Switch focus to next window
+cmd-j: /usr/local/bin/kwmc window -f next
+
+# Swap current with next window
+shift+cmd-j: /usr/local/bin/kwmc window -s next

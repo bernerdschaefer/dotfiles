@@ -4,32 +4,31 @@
 # between large and small monitors.
 #
 # Follow https://github.com/koekeishiya/kwm/issues/154 for alternatives.
-kwmc config padding 80 80 200 200
-# kwmc config padding 40 20 20 20
+
+# kwmc config padding 80 80 200 200 # large screen
+kwmc config padding 80 80 80 80     # medium screen
+# kwmc config padding 40 20 20 20   # small screen
 
 # Set default values for container gaps
-kwmc config gap 80 80
-
-# Let Kwm listen for hotkeys
-kwmc config hotkeys on
-
-# Launch iTerm2
-kwmc bind shift+cmd-return sys open -na /Users/bernerd/Applications/iTerm.app
-
-# Set Space Tiling Mode To BSP
-kwmc bind cmd+ctrl-t space -t bsp
-
-# Set Space Tiling Mode To Monocle
-kwmc bind cmd+ctrl-m space -t monocle
-
-# Set Space Tiling Mode To Floating
-kwmc bind cmd+ctrl-d space -t float
-
-# Move focus to next window
-kwmc bind cmd-j window -f next
-
-# Swap with next window
-kwmc bind shift+cmd-j window -s next
+kwmc config gap 80 40
 
 # New splits become the left leaf-node
 kwmc config spawn left
+
+# Automatically float windows that fail to resize
+kwmc config float-non-resizable on
+
+# Automatically resize the window to its container
+kwmc config lock-to-container on
+
+# Set focus-follows-mouse-mode to autoraise
+kwmc config focus-follows-mouse on
+
+/*
+    Focus-follows-mouse is temporarily disabled when
+    a floating window has focus
+*/
+kwmc config standby-on-float on
+
+# Center window when made floating
+kwmc config center-on-float on
