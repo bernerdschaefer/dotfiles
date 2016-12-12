@@ -27,6 +27,7 @@ set shiftwidth=2
 set showmode
 set softtabstop=2
 set suffixesadd=.go,.scala,.clj,.rb,.haml
+set tags+=.git/tags
 set title
 set ttimeoutlen=50
 set wildignore+=*/target/classes/*
