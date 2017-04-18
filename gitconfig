@@ -4,11 +4,11 @@
 [credential]
         helper = store
 [commit]
-        gpgsign = true
+        # gpgsign = true
 [hub]
         protocol = https
 [merge]
-        ff = only
+        # ff = only
 [push]
         default = current
 [gpg]
