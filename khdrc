@@ -1,7 +1,7 @@
 # Enable kwm compatibility mode
 khd kwm on
 
-shift+cmd-return: open -na /Applications/iTerm.app
+shift+cmd-return: open -na iTerm
 
 # Set space to tiling
 cmd+ctrl-t: /usr/local/bin/kwmc space -t bsp
