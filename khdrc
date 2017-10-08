@@ -1,6 +1,3 @@
-# Enable kwm compatibility mode
-khd kwm on
-
 shift+cmd-return: open -na iTerm
 
 # Set space to tiling
