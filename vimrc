@@ -8,7 +8,8 @@ set shell=/bin/sh
 set rtp-=$VIM/vimfiles/after,$HOME/.vim/after
 set rtp+=$HOME/.vim/plugins/*,$VIM/vimfiles/after,$HOME/.vim/after
 
-syntax off
+syntax on
+colorscheme null
 filetype plugin indent on
 
 set backspace=start " allow backspace in insert mode (single line)
@@ -36,15 +37,6 @@ set wildignore+=*/bower_components/*
 set wildignore+=*/vendor/bundle/*
 set wildmenu
 set wildmode=list:longest
-
-" some custom colors
-hi NonText      ctermfg=14 ctermbg=none
-hi StatusLine   cterm=underline ctermfg=14 ctermbg=none
-hi StatusLineNC cterm=underline ctermfg=0 ctermbg=none
-hi Tabline      cterm=none
-hi TablineFill  cterm=none ctermbg=7
-hi TablineSel   cterm=bold ctermfg=4 ctermbg=none
-hi VertSplit    cterm=bold ctermfg=14 ctermbg=none
 
 digraph ?! 8253 " ‽ - interrobang
 
