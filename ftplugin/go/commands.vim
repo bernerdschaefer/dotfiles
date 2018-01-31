@@ -1,5 +1,5 @@
 " -- gorename
-command! -nargs=? GoRename call go#rename#Rename(<bang>0,<f-args>)
+command! -nargs=? -complete=customlist,go#rename#Complete GoRename call go#rename#Rename(<bang>0, <f-args>)
 
 " -- guru
 command! -nargs=* -complete=customlist,go#package#Complete GoGuruScope call go#guru#Scope(<f-args>)
@@ -23,7 +23,7 @@ command! -nargs=* -range GoAddTags call go#tags#Add(<line1>, <line2>, <count>, <
 command! -nargs=* -range GoRemoveTags call go#tags#Remove(<line1>, <line2>, <count>, <f-args>)
 
 " -- tool
-command! -nargs=0 GoFiles echo go#tool#Files()
+command! -nargs=* -complete=customlist,go#tool#ValidFiles GoFiles echo go#tool#Files(<f-args>)
 command! -nargs=0 GoDeps echo go#tool#Deps()
 command! -nargs=* GoInfo call go#tool#Info(0)
 command! -nargs=0 GoAutoTypeInfoToggle call go#complete#ToggleAutoTypeInfo()
@@ -34,9 +34,11 @@ command! -nargs=? -bang GoBuildTags call go#cmd#BuildTags(<bang>0, <f-args>)
 command! -nargs=* -bang GoGenerate call go#cmd#Generate(<bang>0,<f-args>)
 command! -nargs=* -bang -complete=file GoRun call go#cmd#Run(<bang>0,<f-args>)
 command! -nargs=* -bang GoInstall call go#cmd#Install(<bang>0, <f-args>)
-command! -nargs=* -bang GoTest call go#cmd#Test(<bang>0, 0, <f-args>)
-command! -nargs=* -bang GoTestFunc call go#cmd#TestFunc(<bang>0, <f-args>)
-command! -nargs=* -bang GoTestCompile call go#cmd#Test(<bang>0, 1, <f-args>)
+
+" -- test
+command! -nargs=* -bang GoTest call go#test#Test(<bang>0, 0, <f-args>)
+command! -nargs=* -bang GoTestFunc call go#test#Func(<bang>0, <f-args>)
+command! -nargs=* -bang GoTestCompile call go#test#Test(<bang>0, 1, <f-args>)
 
 " -- cover
 command! -nargs=* -bang GoCoverage call go#coverage#Buffer(<bang>0, <f-args>)
@@ -80,16 +82,20 @@ command! -nargs=* -complete=customlist,go#package#Complete GoErrCheck call go#li
 " -- alternate
 command! -bang GoAlternate call go#alternate#Switch(<bang>0, '')
 
-" -- ctrlp
-if globpath(&rtp, 'plugin/ctrlp.vim') != ""
-  command! -nargs=? -complete=file GoDecls call ctrlp#init(ctrlp#decls#cmd(0, <q-args>))
-  command! -nargs=? -complete=dir GoDeclsDir call ctrlp#init(ctrlp#decls#cmd(1, <q-args>))
-endif
+" -- decls
+command! -nargs=? -complete=file GoDecls call go#decls#Decls(0, <q-args>)
+command! -nargs=? -complete=dir GoDeclsDir call go#decls#Decls(1, <q-args>)
 
 " -- impl
-command! -nargs=* -buffer -complete=customlist,go#impl#Complete GoImpl call go#impl#Impl(<f-args>)
+command! -nargs=* -complete=customlist,go#impl#Complete GoImpl call go#impl#Impl(<f-args>)
 
 " -- template
 command! -nargs=0 GoTemplateAutoCreateToggle call go#template#ToggleAutoCreate()
+
+" -- keyify
+command! -nargs=0 GoKeyify call go#keyify#Keyify()
+
+" -- fillstruct
+command! -nargs=0 GoFillStruct call go#fillstruct#FillStruct()
 
 " vim: sw=2 ts=2 et

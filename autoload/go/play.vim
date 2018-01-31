@@ -20,7 +20,7 @@ function! go#play#Share(count, line1, line2) abort
   call delete(share_file)
 
   if go#util#ShellError() != 0
-    echo 'A error has occured. Run this command to see what the problem is:'
+    echo 'A error has occurred. Run this command to see what the problem is:'
     echo command
     return
   endif
@@ -68,26 +68,6 @@ function! s:get_visual_selection() abort
   let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
   let lines[0] = lines[0][col1 - 1:]
   return join(lines, "\n")
-endfunction
-
-" following two functions are from: https://github.com/mattn/gist-vim
-" thanks  @mattn
-function! s:get_browser_command() abort
-  let go_play_browser_command = get(g:, 'go_play_browser_command', '')
-  if go_play_browser_command == ''
-    if has('win32') || has('win64')
-      let go_play_browser_command = '!start rundll32 url.dll,FileProtocolHandler %URL%'
-    elseif has('mac') || has('macunix') || has('gui_macvim') || go#util#System('uname') =~? '^darwin'
-      let go_play_browser_command = 'open %URL%'
-    elseif executable('xdg-open')
-      let go_play_browser_command = 'xdg-open %URL%'
-    elseif executable('firefox')
-      let go_play_browser_command = 'firefox %URL% &'
-    else
-      let go_play_browser_command = ''
-    endif
-  endif
-  return go_play_browser_command
 endfunction
 
 " vim: sw=2 ts=2 et
