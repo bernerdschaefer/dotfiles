@@ -33,7 +33,7 @@ function! go#package#Paths() abort
 
   if !exists("s:goroot")
     if executable('go')
-      let s:goroot = go#util#goroot()
+      let s:goroot = go#util#env("goroot")
       if go#util#ShellError() != 0
         echomsg '''go env GOROOT'' failed'
       endif
@@ -46,7 +46,7 @@ function! go#package#Paths() abort
     let dirs += [s:goroot]
   endif
 
-  let workspaces = split(go#path#Detect(), go#util#PathListSep())
+  let workspaces = split(go#path#Default(), go#util#PathListSep())
   if workspaces != []
     let dirs += workspaces
   endif
@@ -54,28 +54,24 @@ function! go#package#Paths() abort
   return dirs
 endfunction
 
-function! go#package#ImportPath(arg) abort
-  let path = fnamemodify(resolve(a:arg), ':p')
-  let dirs = go#package#Paths()
-
-  for dir in dirs
-    if len(dir) && matchstr(escape(path, '\/'), escape(dir, '\/')) == 0
-      let workspace = dir
-    endif
-  endfor
-
-  if !exists('workspace')
+" ImportPath returns the import path in the current directory it was executed
+function! go#package#ImportPath() abort
+  let out = go#tool#ExecuteInDir("go list")
+  if go#util#ShellError() != 0
     return -1
   endif
 
-  if go#util#IsWin()
-    let srcdir = substitute(workspace . '\src\', '//', '/', '')
-    return path[len(srcdir):]
-  else
-    let srcdir = substitute(workspace . '/src/', '//', '/', '')
-    return substitute(path, srcdir, '', '')
+  let import_path = split(out, '\n')[0]
+
+  " go list returns '_CURRENTDIRECTORY' if the directory is not inside GOPATH.
+  " Check it and retun an error if that is the case
+  if import_path[0] ==# '_'
+    return -1
   endif
+
+  return import_path
 endfunction
+
 
 function! go#package#FromPath(arg) abort
   let path = fnamemodify(resolve(a:arg), ':p')
@@ -84,6 +80,7 @@ function! go#package#FromPath(arg) abort
   for dir in dirs
     if len(dir) && match(path, dir) == 0
       let workspace = dir
+      break
     endif
   endfor
 
@@ -91,10 +88,12 @@ function! go#package#FromPath(arg) abort
     return -1
   endif
 
+  let path = substitute(path, '/*$', '', '')
+  let workspace = substitute(workspace . '/src/', '/+', '', '')
   if isdirectory(path)
-    return substitute(path, workspace . 'src/', '', '')
+    return substitute(path, workspace, '', '')
   else
-    return substitute(substitute(path, workspace . 'src/', '', ''),
+    return substitute(substitute(path, workspace, '', ''),
           \ '/' . fnamemodify(path, ':t'), '', '')
   endif
 endfunction

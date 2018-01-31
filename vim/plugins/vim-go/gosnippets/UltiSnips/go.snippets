@@ -110,7 +110,7 @@ snippet gpl
 * You should have received a copy of the GNU General Public License
 * along with this program; if not, see <http://www.gnu.org/licenses/>.
 *
-* Copyright (C) ${1:Author}, `strftime("%Y")`
+* Copyright (C) ${1:Author}, `!v strftime("%Y")`
 */
 ${0}
 endsnippet
@@ -139,6 +139,13 @@ endsnippet
 # else snippet
 snippet else
 else {
+	${0:${VISUAL}}
+}
+endsnippet
+
+# if inline error
+snippet ife "If with inline erro"
+if err := ${1:condition}; err != nil {
 	${0:${VISUAL}}
 }
 endsnippet
