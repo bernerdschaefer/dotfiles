@@ -1,0 +1,11 @@
+\set QUIET 1
+
+\set timezone = 'utc';
+
+\pset null '¤'
+
+-- Customize prompts
+\set PROMPT1 '%[%033[1m%][%/] #%[%033[0m%]% '
+\set PROMPT2 '... # '
+
+\unset QUIET
