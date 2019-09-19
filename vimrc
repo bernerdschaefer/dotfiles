@@ -25,13 +25,13 @@ set path=.,**,,
 set ruler
 set shiftwidth=2
 set showmode
-set softtabstop=2
 set suffixesadd=.go,.scala,.clj,.rb,.haml
+set tabstop=2
 set tags+=.git/tags
 set title
 set ttimeoutlen=50
-set wildignore+=*/target/classes/*
 set wildignore+=*/node_modules/*
+set wildignore+=*/target/classes/*
 set wildignore+=*/bower_components/*
 set wildignore+=*/vendor/bundle/*
 set wildmenu
