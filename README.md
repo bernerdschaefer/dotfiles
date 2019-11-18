@@ -1,13 +1,4 @@
 ```
-# copy nixos configuration
-sudo cp -R nixos/* /etc/nixos/
-
-# update system configuration
-sudo nixos-rebuild switch
-
-# set up default profile
-nix-env -f profile.nix -i '*'
-
 # install dotfiles
 env RCRC=~/src/github.com/bernerdschaefer/dotfiles/rcrc rcup
 ```
