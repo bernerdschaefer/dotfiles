@@ -1,5 +1,6 @@
 cask_args appdir: "/Applications"
 
+brew "asdf"
 brew "awscli"
 brew "fish"
 brew "graphviz"

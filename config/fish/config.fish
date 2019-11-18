@@ -10,3 +10,6 @@ set -x PATH $GOPATH/bin $PATH
 
 # Trust bin/ if .git/safe exists.
 set -x PATH .git/safe/../../bin $PATH
+
+# Configure asdf
+source (brew --prefix asdf)/asdf.fish
