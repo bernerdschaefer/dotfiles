@@ -1,2 +1,2 @@
-EXCLUDES="README.md bin/setup"
+EXCLUDES="README.md Brewfile* bin/setup"
 DOTFILES_DIRS="$HOME/src/github.com/bernerdschaefer/dotfiles"
