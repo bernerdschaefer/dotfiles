@@ -10,6 +10,3 @@ set -x PATH $GOPATH/bin $PATH
 
 # Trust bin/ if .git/safe exists.
 set -x PATH .git/safe/../../bin $PATH
-
-# Configure rbenv shims and autocompletion
-rbenv init - --no-rehash | source
