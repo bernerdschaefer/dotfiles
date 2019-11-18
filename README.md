@@ -1,6 +1,12 @@
+# dotfiles
+
+### Install
+
 ```
-# install dotfiles
-env RCRC=~/src/github.com/bernerdschaefer/dotfiles/rcrc rcup
+git clone https://github.com/bernerdschaefer/dotfiles \
+  $HOME/src/github.com/bernerdschaefer/dotfiles
+cd $HOME/src/github.com/bernerdschaefer/dotfiles
+bin/setup
 ```
 
 ### Manage vim plugins
