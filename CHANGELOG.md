@@ -1,5 +1,451 @@
 ## unplanned
 
+## v1.21
+
+BACKWARDS INCOMPATABILITIES:
+* `g:go_metalinter_disabled` has been removed.
+  [[GH-2375]](https://github.com/fatih/vim-go/pull/2117)
+
+IMPROVEMENTS:
+* Add a new option, `g:go_code_completion_enabled`, to control whether omnifunc
+  is set.
+  [[GH-2229]](https://github.com/fatih/vim-go/pull/2229)
+* Use build tags with golangci-lint.
+  [[GH-2261]](https://github.com/fatih/vim-go/pull/2261)
+* Allow debugging of packages outside of GOPATH without a go.mod file.
+  [[GH-2269]](https://github.com/fatih/vim-go/pull/2269)
+* Show which example failed when Example tests fail
+  [[GH-2277]](https://github.com/fatih/vim-go/pull/2277)
+* Show function signature and return types in preview window when autocompleting functions and methods.
+  [[GH-2289]](https://github.com/fatih/vim-go/pull/2289)
+* Improve the user experience when using null modules.
+  [[GH-2300]](https://github.com/fatih/vim-go/pull/2300)
+* Modify `:GoReportGitHubIssue` to include vim-go configuration values
+  [[GH-2323]](https://github.com/fatih/vim-go/pull/2323)
+* Respect `g:go_info_mode='gopls'` in go#complete#GetInfo.
+  [[GH-2313]](https://github.com/fatih/vim-go/pull/2313)
+* Allow `:GoLint`, `:GoErrCheck`, and `:GoDebug` to work in null modules.
+  [[GH-2335]](https://github.com/fatih/vim-go/pull/2335)
+* Change default value for `g:go_info_mode` and `g:go_def_mode` to `'gopls'`.
+  [[GH-2329]](https://github.com/fatih/vim-go/pull/2329)
+* Add a new option, `g:go_doc_popup_window` to optionally use a popup window
+  for godoc in Vim 8.1.1513 and later.
+  [[GH-2347]](https://github.com/fatih/vim-go/pull/2347)
+* Add `:GoAddWorkspace` function to support multiple workspaces with gopls.
+  [[GH-2356]](https://github.com/fatih/vim-go/pull/2356)
+* Install gopls from its stable package.
+  [[GH-2360]](https://github.com/fatih/vim-go/pull/2360)
+* Disambiguate progress message when initializing gopls.
+  [[GH-2369]](https://github.com/fatih/vim-go/pull/2369)
+* Calculate LSP position correctly when on a line that contains multi-byte
+  characters before the position.
+  [[GH-2389]](https://github.com/fatih/vim-go/pull/2389)
+* Calculate Vim position correctly from LSP text position.
+  [[GH-2395]](https://github.com/fatih/vim-go/pull/2395)
+* Use the statusline to display gopls initialization status messages and only
+  echo the statuses when `g:go_echo_command_info` is set.
+  [[GH-2422]](https://github.com/fatih/vim-go/pull/2422)
+* Send configuration to gopls so that build tags will be considered and hover
+  content won't have documentation.
+  [[GH-2429]](https://github.com/fatih/vim-go/pull/2429)
+* Add a new option, `g:go_term_close_on_exit`, to control whether jobs run in a
+  terminal window will close the terminal window when the job exits.
+  [[GH-2409]](https://github.com/fatih/vim-go/pull/2409)
+* Allow `g:go_template_file` and `g:go_template_test_files` to reside outside
+  of vim-go's template directory.
+  [[GH-2434]](https://github.com/fatih/vim-go/pull/2434)
+* Add a new command, `:GoLSPDebugBrowser`, to open a browser to gopls debugging
+  view.
+  [[GH-2436]](https://github.com/fatih/vim-go/pull/2436)
+* Restart gopls automatically when it is updated via `:GoUpdateBinaries`.
+  [[GH-2453]](https://github.com/fatih/vim-go/pull/2453)
+* Reset `'more'` while installing binaries to avoid unnecessary more prompts.
+  [[GH-2457]](https://github.com/fatih/vim-go/pull/2457)
+* Highlight `%w` as a format specifier (for Go 1.13).
+  [[GH-2433]](https://github.com/fatih/vim-go/pull/2433)
+* Handle changes to Go 1.13's go vet output that gometalinter isn't expecting.
+  [[GH-2475]](https://github.com/fatih/vim-go/pull/2475)
+* Make `golangci-lint` the default value for `g:go_metalinter_command`.
+  [[GH-2478]](https://github.com/fatih/vim-go/pull/2478)
+* Parse compiler errors from Go 1.13 `go vet` correctly.
+  [[GH-2485]](https://github.com/fatih/vim-go/pull/2485)
+
+BUG FIXES:
+* display info about function and function types whose parameters are
+  `interface{}` without truncating the function signature.
+  [[GH-2244]](https://github.com/fatih/vim-go/pull/2244)
+* install tools that require GOPATH mode when in module mode.
+  [[GH-2253]](https://github.com/fatih/vim-go/pull/2253)
+* Detect GOPATH when starting `gopls`
+  [[GH-2255]](https://github.com/fatih/vim-go/pull/2255)
+* Handle `gopls` responses in the same window from which the respective request
+  originated.
+  [[GH-2266]](https://github.com/fatih/vim-go/pull/2266)
+* Show completion matches from gocode.
+  [[GH-2267]](https://github.com/fatih/vim-go/pull/2267)
+* Show the completion preview window.
+  [[GH-2268]](https://github.com/fatih/vim-go/pull/2268)
+* Set the anchor for method documentation correctly.
+  [[GH-2276]](https://github.com/fatih/vim-go/pull/2276)
+* Respect the LSP information for determining where candidate matches start.
+  [[GH-2291]](https://github.com/fatih/vim-go/pull/2291)
+* Restore environment variables with backslashes correctly.
+  [[GH-2292]](https://github.com/fatih/vim-go/pull/2292)
+* Modify handling of gopls output for `:GoInfo` to ensure the value will be
+  displayed.
+  [[GH-2311]](https://github.com/fatih/vim-go/pull/2311)
+* Run `:GoLint` successfully in null modules.
+  [[GH-2318]](https://github.com/fatih/vim-go/pull/2318)
+* Ensure actions on save work in new buffers that have not yet been persisted to disk.
+  [[GH-2319]](https://github.com/fatih/vim-go/pull/2319)
+* Restore population of information in `:GoReportGitHubIssue`.
+  [[GH-2312]](https://github.com/fatih/vim-go/pull/2312)
+* Do not jump back to the originating window when jumping to definitions with
+  `g:go_def_mode='gopls'`.
+  [[GH-2327]](https://github.com/fatih/vim-go/pull/2327)
+* Fix getting information about a valid identifier for which gopls returns no
+  information (e.g. calling `:GoInfo` on a package identifier).
+  [[GH-2339]](https://github.com/fatih/vim-go/pull/2339)
+* Fix tab completion of package names on the cmdline in null modules.
+  [[GH-2342]](https://github.com/fatih/vim-go/pull/2342)
+* Display identifier info correctly when the identifier has no godoc.
+  [[GH-2373]](https://github.com/fatih/vim-go/pull/2373)
+* Fix false positives when saving a buffer and `g:go_metalinter_command` is
+  `golangci-lint`.
+  [[GH-2367]](https://github.com/fatih/vim-go/pull/2367)
+* Fix `:GoDebugRestart`.
+  [[GH-2390]](https://github.com/fatih/vim-go/pull/2390)
+* Do not execute tests twice in terminal mode.
+  [[GH-2397]](https://github.com/fatih/vim-go/pull/2397)
+* Do not open a new buffer in Neovim when there are compilation errors and
+  terminal mode is enabled.
+  [[GH-2401]](https://github.com/fatih/vim-go/pull/2401)
+* Fix error due to typo in implementation of `:GoAddWorkspace`.
+  [[GH-2415]](https://github.com/fatih/vim-go/pull/2401)
+* Do not format the file automatically when `g:go_format_autosave` is set and
+  the file being written is not the current file.
+  [[GH-2442]](https://github.com/fatih/vim-go/pull/2442)
+* Fix `go-debug-stepout` mapping.
+  [[GH-2464]](https://github.com/fatih/vim-go/pull/2464)
+* Handle paths with spaces correctly when executing jobs.
+  [[GH-2472]](https://github.com/fatih/vim-go/pull/2472)
+* Remove a space in the default value for `g:go_debug_log_output`, so that
+  Delve will start on Windows.
+  [[GH-2480]](https://github.com/fatih/vim-go/pull/2480)
+
+## 1.20 - (April 22, 2019)
+
+FEATURES:
+* ***gopls support!***
+  * use gopls for autocompletion by default in Vim8 and Neovim.
+  * use gopls for `:GoDef` by setting `g:go_def_mode='gopls'`.
+  * use gopls for `:GoInfo` by setting `g:go_info_mode='gopls'`.
+* Add support for golangci-lint.
+  * set `g:go_metalinter_command='golangci-lint'` to use golangci-lint instead
+    of gometalinter.
+* New `:GoDefType` command to jump to a type definition from an instance of the
+  type.
+
+BACKWARDS INCOMPATABILITIES:
+* `g:go_highlight_function_arguments` is renamed to `g:go_highlight_function_parameters`
+  [[GH-2117]](https://github.com/fatih/vim-go/pull/2117)
+
+IMPROVEMENTS:
+* Disable `g:go_gocode_propose_source` by default.
+  [[GH-2050]](https://github.com/fatih/vim-go/pull/2050)
+* Don't spam users when Vim is run with vi compatibility.
+  [[GH-2055]](https://github.com/fatih/vim-go/pull/2055)
+* Add bang support to lint commands to allow them to be run without jumping to
+  errors.
+  [[GH-2056]](https://github.com/fatih/vim-go/pull/2056)
+* Use `go doc` for `:GoDoc` instead of `godoc`.
+  [[GH-2070]](https://github.com/fatih/vim-go/pull/2070)
+* Detach from and shutdown dlv correctly.
+  [[GH-2075]](https://github.com/fatih/vim-go/pull/2075)
+* Do not require `'autowrite'` or `'autowriteall'` to be set when using
+  autocompletion in module mode.
+  [[GH-2091]](https://github.com/fatih/vim-go/pull/2091)
+* Fix use of `g:go_metalinter_command` _and_ apply it even when autosaving.
+  [[GH-2101]](https://github.com/fatih/vim-go/pull/2101)
+* Report errors in quickfix when Delve fails to start (e.g. compiler errors).
+  [[GH-2111]](https://github.com/fatih/vim-go/pull/2111)
+* Support `'undo_ftplugin'`, make most autocmds buffer-local, and only do the
+  bare minimum based on file names alone.
+  [[GH-2108]](https://github.com/fatih/vim-go/pull/2108)
+* Write a message when `:GoInfo` can't display any results when `g:go_info_mode='gocode'`.
+  [[GH-2122]](https://github.com/fatih/vim-go/pull/2122)
+* Highlight fields followed by an operator when `g:go_highlight_fields` is set.
+  [[GH-1907]](https://github.com/fatih/vim-go/pull/1907)
+* Skip autosave actions when the buffer is not a readable file.
+  [[GH-2143]](https://github.com/fatih/vim-go/pull/2143)
+* Run `godef` from the current buffer's directory to make sure it works with modules.
+  [[GH-2150]](https://github.com/fatih/vim-go/pull/2150)
+* Add a function, `go#tool#DescribeBalloon`, to show information in a balloon
+  with `'balloonexpr'`. (Vim8 only).
+  [[GH-1975]](https://github.com/fatih/vim-go/pull/1975)
+* Add initial support for `gopls`.
+  [[GH-2163]](https://github.com/fatih/vim-go/pull/2163).
+* Add `:GoDefType` to jump to the type definition of the identifier under the
+  cursor.
+  [[GH-2165]](https://github.com/fatih/vim-go/pull/2165)
+* Notify gopls about changes.
+  [[GH-2171]](https://github.com/fatih/vim-go/pull/2171)
+* Respect `g:go_jump_to_error` when running `gometalinter` automatically on
+  save.  [[GH-2176]](https://github.com/fatih/vim-go/pull/2176)
+* Use gopls for code completion by default in Vim8 and Neovim.
+  [[GH-2172]](https://github.com/fatih/vim-go/pull/2172)
+* Add support for golangci-lint.
+  [[GH-2182]](https://github.com/fatih/vim-go/pull/2182)
+* Show hover balloon using gopls instead of gocode.
+  [[GH-2202]](https://github.com/fatih/vim-go/pull/2202)
+* Add a new option, `g:go_debug_log_output`, to control logging with the
+  debugger.
+  [[GH-2203]](https://github.com/fatih/vim-go/pull/2203)
+* Do not jump to quickfix or location list window when bang is used for async
+  jobs or linting.
+  [[GH-2205]](https://github.com/fatih/vim-go/pull/2205)
+* Tab complete package names for commands from vendor directories and in
+  modules.
+  [[GH-2213]](https://github.com/fatih/vim-go/pull/2213)
+* Add support for `gopls` to `g:go_info_mode`.
+  [[GH-2224]](https://github.com/fatih/vim-go/pull/2224)
+
+BUG FIXES:
+* Fix opening of non-existent file from `:GoDeclsDir` when the current
+  directory is not the directory containing the current buffer.
+  [[GH-2048]](https://github.com/fatih/vim-go/pull/2048)
+* Fix jumping to an identifier with godef from a modified buffer.
+  [[GH-2054]](https://github.com/fatih/vim-go/pull/2054)
+* Fix errors when `g:go_debug` contains `debugger-commands`.
+  [[GH-2075]](https://github.com/fatih/vim-go/pull/2075)
+* Fix errors from `:GoDebugStop` in Neovim.
+  [[GH-2075]](https://github.com/fatih/vim-go/pull/2075)
+* Fix `:GoSameIdsToggle`.
+  [[GH-2086]](https://github.com/fatih/vim-go/pull/2086)
+* Do not set fileencoding or fileformat options or populate from template when
+  the buffer is not modifiable.
+  [[GH-2097]](https://github.com/fatih/vim-go/pull/2097)
+* Do not clear buffer-local autocmds of other buffers. 
+  [[GH-2109]](https://github.com/fatih/vim-go/pull/2109)
+* Highlight return parameter types when g:go_highlight_function_arguments is
+  set.  [[GH-2116]](https://github.com/fatih/vim-go/pull/2116)
+* Fix lockup in Neovim when trying to run `:GoDebugTest` when there are no
+  tests.  [[GH-2125]](https://github.com/fatih/vim-go/pull/2125)
+* Keep track of breakpoints correctly when buffer is edited after breakpoints
+  are set.
+  [[GH-2126]](https://github.com/fatih/vim-go/pull/2126)
+* Fix race conditions in `:GoDebugStop`.
+  [[GH-2127]](https://github.com/fatih/vim-go/pull/2127)
+* Fix jumping to module or package using godef.
+  [[GH-2141]](https://github.com/fatih/vim-go/pull/2141)
+* Fix errors caused by redefining functions within functions.
+  [[GH-2189]](https://github.com/fatih/vim-go/pull/2189)
+* Highlight pre-release and metadata in versions in go.mod.
+  [[GH-2192]](https://github.com/fatih/vim-go/pull/2192)
+* Handle runtime panics from `:GoRun` when using Neovim's terminal.
+  [[GH-2209]](https://github.com/fatih/vim-go/pull/2209)
+* Fix adding tag option when a tag is added.
+  [[GH-2227]](https://github.com/fatih/vim-go/pull/2227)
+
+## 1.19 - (November 4, 2018)
+
+FEATURES:
+
+* **go.mod file support!** This is the first feature for upcoming Go modules
+  support. The followings are added:
+  * Syntax highlighting for the `go.mod` file. 
+  * A new `gomod` filetype is set if a `go.mod` file has been opened and starts
+    with the line `module `
+  * New **:GoModFmt** command that formats the `go.mod` file
+  * Auto format on save feature for `:GoModFmt`, enabled automatically. Can be
+    toggled of with the setting `g:go_mod_fmt_autosave` or with the command:
+    `GoModFmtAutoSaveToggle`
+    [[GH-1931]](https://github.com/fatih/vim-go/pull/1931)
+
+IMPROVEMENTS:
+* Unify async job handling for Vim8 and Neovim.
+  [[GH-1864]](https://github.com/fatih/vim-go/pull/1864)
+* Document Vim and Neovim requirements in README.md and help file.
+  [[GH-1889]](https://github.com/fatih/vim-go/pull/1889)
+* Highlight `context.Context` when `g:go_highlight_extra_types` is set.
+  [[GH-1903]](https://github.com/fatih/vim-go/pull/1903)
+* Run gometalinter asynchronously in Neovim.
+  [[GH-1901]](https://github.com/fatih/vim-go/pull/1901)
+* Run gorename asynchronously in Vim8 and Neovim.
+  [[GH-1894]](https://github.com/fatih/vim-go/pull/1894)
+* Install keyify from its canonical import path.
+  [[GH-1924]](https://github.com/fatih/vim-go/pull/1924)
+* Update the tested version of Neovim to v0.3.1.
+  [[GH-1923]](https://github.com/fatih/vim-go/pull/1923)
+* Run autocompletion asynchronously in Vim8 and Neovim.
+  [[GH-1926]](https://github.com/fatih/vim-go/pull/1926)
+* Show statusline update when running `:GoInfo` with `g:go_info_mode='gocode'`.
+  [[GH-1937]](https://github.com/fatih/vim-go/pull/1937)
+* Do not update statusline when highlighting sameids or showing type info via
+  an autocmd.
+  [[GH-1937]](https://github.com/fatih/vim-go/pull/1937)
+* Do not indent within a raw string literal.
+  [[GH-1858]](https://github.com/fatih/vim-go/pull/1858)
+* Highlight Go's predeclared function identifiers (the functions in `builtins`)
+  using keyword groups and highlight them using the `Identifiers` group.
+  [[GH-1939]](https://github.com/fatih/vim-go/pull/1939)
+* Add a new FAQ entry to instruct users how to modify the vim-go highlight
+  groups.
+  [[GH-1939]](https://github.com/fatih/vim-go/pull/1939)
+* Improve use of statusline and progress messages.
+  [[GH-1948]](https://github.com/fatih/vim-go/pull/1948)
+* Add `tt` snippet to create a table test boilerplate (see
+  https://github.com/golang/go/wiki/TableDrivenTests for more information on
+  how to use a table driven test).
+  [[GH-1956]](https://github.com/fatih/vim-go/pull/1956)
+* Add `<Plug>(go-decls)` and `<Plug>(go-decls-dir)` mappings.
+  [[GH-1964]](https://github.com/fatih/vim-go/pull/1964)
+* Handle go1.11 test output.
+  [[GH-1978]](https://github.com/fatih/vim-go/pull/1978)
+* Internal: install tools by their custom names
+  [[GH-1984]](https://github.com/fatih/vim-go/pull/1984)
+* Support the go-debugger features in Neovim.
+  [[GH-2007]](https://github.com/fatih/vim-go/pull/2007)
+* color the statusline for termguicolors and Neovim.
+  [[GH-2014]](https://github.com/fatih/vim-go/pull/2014)
+* add an option to disable highlighting of breakpoints and the current line
+  when debugging.
+  [[GH-2025]](https://github.com/fatih/vim-go/pull/2025)
+* Update autocompletion to work with Go modules.
+  [[GH-1988]](https://github.com/fatih/vim-go/pull/1988)
+* Add an option to search $GOPATH/bin or $GOBIN _after_ $PATH.
+  [[GH-2041]](https://github.com/fatih/vim-go/pull/2041)
+
+BUG FIXES:
+* Fix `:GoRun %` on Windows.
+  [[GH-1900]](https://github.com/fatih/vim-go/pull/1900)
+* Fix `go#complete#GetInfo()` to return a description of the identifier.
+  [[GH-1905]](https://github.com/fatih/vim-go/pull/1905)
+* Restore support for running tests in the Neovim terminal.
+  [[GH-1895]](https://github.com/fatih/vim-go/pull/1895)
+* Fix `:GoInfo` when `g:go_info_mode` is `gocode`
+  [[GH-1915]](https://github.com/fatih/vim-go/pull/1915)
+* Fix highlighting of pointer type in var blocks.
+  [[GH-1794]](https://github.com/fatih/vim-go/pull/1794)
+* Fix `:GoImport` when adding to an empty import block (i.e`import ()`)
+  [[GH-1938]](https://github.com/fatih/vim-go/pull/1938)
+* Run shell commands with shellcmdflag set to `-c`.
+  [[GH-2006]](https://github.com/fatih/vim-go/pull/2006)
+* Use the correct log output option for delve.
+  [[GH-1992]](https://github.com/fatih/vim-go/pull/1992)
+* Pass empty arguments correctly in async jobs on Windows.
+  [[GH-2011]](https://github.com/fatih/vim-go/pull/2011)
+* Don't close godoc scratch window when using arrow keys.
+  [[GH-2021]](https://github.com/fatih/vim-go/pull/2021)
+
+BACKWARDS INCOMPATIBILITIES:
+* Bump minimum required version of Vim to 7.4.2009.
+  [[GH-1899]](https://github.com/fatih/vim-go/pull/1899)
+* Switch gocode to github.com/mdempsky/gocode. Several gocode options have been
+  removed and a new one has been added.
+  [[GH-1853]](https://github.com/fatih/vim-go/pull/1853)
+
+## 1.18 - (July 18, 2018)
+
+FEATURES:
+
+* Add **:GoIfErr** command together with the `<Plug>(go-iferr)` plug key to
+  create a custom mapping. This command generates an `if err != nil { return ...  }` 
+  automatically which infer the type of return values and the numbers.
+  For example:
+
+  ```
+  func doSomething() (string, error) {
+      f, err := os.Open("file")
+  }
+  ```
+ 
+  Becomes:
+
+  ```
+  func doSomething() (string, error) {
+      f, err := os.Open("file")
+      if err != nil {
+          return "", err
+      }
+  }
+  ```
+
+* Two new text objects has been added: 
+  * `ic` (inner comment) selects the content of the comment, excluding the start/end markers (i.e: `//`, `/*`)
+  * `ac` (a comment) selects the content of the whole commment block, including markers
+  To use this new feature, make sure you use use the latest version of
+  [motion](https://github.com/fatih/motion). You can update the tool from Vim
+  via `:GoUpdateBinaries`
+  [[GH-1779]](https://github.com/fatih/vim-go/pull/1779)
+* Add `:GoPointsTo` to show all variables to which the pointer under the cursor
+  may point to.
+  [[GH-1751]](https://github.com/fatih/vim-go/pull/1751)
+* Add `:GoReportGitHubIssue` to initialize a new GitHub issue with as much data
+  that our template requests as possible.
+  [[GH-1738]](https://github.com/fatih/vim-go/pull/1738)
+
+IMPROVEMENTS:
+
+* Add build tags (with `g:go_build_tags`) to all commands that support it.
+  [[GH-1705]](https://github.com/fatih/vim-go/pull/1705)
+* Some command which operate on files (rather than Vim buffers) will now show a
+  warning if there are unsaved buffers, similar to Vim's `:make`.
+  [[GH-1754]](https://github.com/fatih/vim-go/pull/1754)
+* Don't return an error from `:GoGuru` functions when the import path is
+  unknown and scope is unneeded.
+  [[GH-1826]](https://github.com/fatih/vim-go/pull/1826)
+* Performance improvements for the `go.vim` syntax file.
+  [[GH-1799]](https://github.com/fatih/vim-go/pull/1799)
+* Allow `GoDebugBreakpoint` and `GoDebugCurrent` highlight groups to be
+  overridden by user configuration.
+  [[GH-1850]](https://github.com/vim-go/pull/1850)
+* Strip trailing carriage returns from quickfix errors that are parsed
+  manually. [[GH-1861]](https://github.com/fatih/vim-go/pull/1861).
+* Cleanup title of terminal window.
+  [[GH-1861]](https://github.com/fatih/vim-go/pull/1861).
+* Add `:GoImpl` is able to complete interfaces by their full import path in
+  addition to the current package name (i.e: `:GoImpl t *T github.com/BurntSushi/toml.Unmarshaller` 
+  is now possible)
+  [[GH-1884]](https://github.com/fatih/vim-go/pull/1884)
+
+BUG FIXES:
+
+* Update the correct window's location list after a long running async job
+  completes, even when the user changes their window layout while the job is
+  running.
+  [[GH-1734]](https://github.com/fatih/vim-go/pull/1734)
+* Apply debugger mappings only for Go buffers, and not all buffers.
+  [[GH-1696]](https://github.com/fatih/vim-go/pull/1696)
+* The `gohtmltmpl` filetype will now highlight `{{ .. }}` syntax HTML attributes
+  and some other locations.
+  [[GH-1790]](https://github.com/fatih/vim-go/pull/1790)
+* Use the correct logging flag argument for delve.
+  [[GH-1809]](https://github.com/fatih/vim-go/pull/1809)
+* Fix gocode option string values that would cause gocode settings not to set
+  correctly
+  [[GH-1818]](https://github.com/fatih/vim-go/pull/1818)
+* Fix Neovim handling of guru output.
+  [[GH-1846]](https://github.com/fatih/vim-go/pull/1846)
+* Execute commands correctly when they are in $GOBIN but not $PATH.
+  [[GH-1866]](https://github.com/fatih/vim-go/pull/1866)
+* Open files correctly with ctrlp.
+  [[GH-1878]](https://github.com/fatih/vim-go/pull/1878)
+* Fix checking guru binary path 
+  [[GH-1886]](https://github.com/fatih/vim-go/pull/1886)
+* Add build tags to `:GoDef` if only it's present 
+  [[GH-1882]](https://github.com/fatih/vim-go/pull/1882)
+
+## 1.17 - (March 27, 2018)
+
+FEATURES:
+
+* **Debugger support!** Add integrated support for the
+  [`delve`](https://github.com/go-delve/delve) debugger. Use
+  `:GoInstallBinaries` to install `dlv`, and see `:help go-debug` to get
+  started.
+  [[GH-1390]](https://github.com/fatih/vim-go/pull/1390)
+
 IMPROVEMENTS:
 
 * Add descriptions to neosnippet abbrevations.
@@ -8,6 +454,16 @@ IMPROVEMENTS:
   `gometalinter` is run automatically when saving a buffer. Whether the
   location list or quickfix list is used can be customized in the usual ways.
   [[GH-1652]](https://github.com/fatih/vim-go/pull/1652)
+* Redraw the screen before executing blocking calls to gocode.
+  [[GH-1671]](https://github.com/fatih/vim-go/pull/1671)
+* Add `fe` -> `fmt.Errorf()` snippet for NeoSnippet and UltiSnippets.
+  [[GH-1677]](https://github.com/fatih/vim-go/pull/1677)
+* Use the async api when calling guru from neovim.
+  [[GH-1678]](https://github.com/fatih/vim-go/pull/1678)
+* Use the async api when calling gocode to get type info.
+  [[GH-1697]](https://github.com/fatih/vim-go/pull/1697)
+* Cache import path lookups to improve responsiveness.
+  [[GH-1713]](https://github.com/fatih/vim-go/pull/1713)
 
 BUG FIXES:
 
@@ -47,7 +503,17 @@ BUG FIXES:
 * Show the file location of test errors when the message is empty or begins
   with a newline.
   [[GH-1664]](https://github.com/fatih/vim-go/pull/1664)
-
+* Fix minisnip on Windows.
+  [[GH-1698]](https://github.com/fatih/vim-go/pull/1698)
+* Keep alternate filename when loading an autocreate template.
+  [[GH-1675]](https://github.com/fatih/vim-go/pull/1675)
+* Parse the column number in errors correctly in vim8 and neovim.
+  [[GH-1716]](https://github.com/fatih/vim-go/pull/1716)
+* Fix race conditions in the terminal handling for neovim.
+  [[GH-1721]](https://github.com/fatih/vim-go/pull/1721)
+* Put the user back in the original window regardless of the value of
+  `splitright` after starting a neovim terminal window.
+  [[GH-1725]](https://github.com/fatih/vim-go/pull/1725)
 
 BACKWARDS INCOMPATIBILITIES:
 
@@ -57,7 +523,7 @@ BACKWARDS INCOMPATIBILITIES:
 
   * `go_highlight_methods`
 
-  in favor of the following settings and changes: 
+  in favor of the following settings and changes:
 
   * `go_highlight_functions`: This highlights now all function and method
     declarations (whereas previously it would also highlight function and
@@ -67,6 +533,9 @@ BACKWARDS INCOMPATIBILITIES:
   [[GH-1557]](https://github.com/fatih/vim-go/pull/1557)
 * Rename g`g:go_metalinter_excludes` to `g:go_metalinter_disabled`.
   [[GH-1648]](https://github.com/fatih/vim-go/pull/1648)
+* `:GoBuild` doesn't append the `-i` flag anymore due the recent Go 1.10
+  changes that introduced a build cache.
+  [[GH-1701]](https://github.com/fatih/vim-go/pull/1701)
 
 ## 1.16 - (December 29, 2017)
 
