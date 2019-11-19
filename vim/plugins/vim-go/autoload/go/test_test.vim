@@ -1,3 +1,7 @@
+" don't spam the user when Vim is started in Vi compatibility mode
+let s:cpo_save = &cpo
+set cpo&vim
+
 func! Test_GoTest() abort
   let expected = [
         \ {'lnum': 12, 'bufnr': 2, 'col': 0, 'valid': 1, 'vcol': 0, 'nr': -1, 'type': '', 'pattern': '', 'text': 'log message'},
@@ -62,26 +66,40 @@ endfunc
 func! Test_GoTestShowName() abort
   let expected = [
         \ {'lnum': 0, 'bufnr': 0, 'col': 0, 'valid': 1, 'vcol': 0, 'nr': -1, 'type': '', 'pattern': '', 'text': 'TestHelloWorld'},
-        \ {'lnum': 6, 'bufnr': 9, 'col': 0, 'valid': 1, 'vcol': 0, 'nr': -1, 'type': '', 'pattern': '', 'text': 'so long'},
+        \ {'lnum': 6, 'bufnr': 8, 'col': 0, 'valid': 1, 'vcol': 0, 'nr': -1, 'type': '', 'pattern': '', 'text': 'so long'},
         \ {'lnum': 0, 'bufnr': 0, 'col': 0, 'valid': 1, 'vcol': 0, 'nr': -1, 'type': '', 'pattern': '', 'text': 'TestHelloWorld/sub'},
-        \ {'lnum': 9, 'bufnr': 9, 'col': 0, 'valid': 1, 'vcol': 0, 'nr': -1, 'type': '', 'pattern': '', 'text': 'thanks for all the fish'},
+        \ {'lnum': 9, 'bufnr': 8, 'col': 0, 'valid': 1, 'vcol': 0, 'nr': -1, 'type': '', 'pattern': '', 'text': 'thanks for all the fish'},
       \ ]
 
   let g:go_test_show_name=1
   call s:test('showname/showname_test.go', expected)
-  let g:go_test_show_name=0
+  unlet g:go_test_show_name
+endfunc
+
+func! Test_GoTestVet() abort
+  let expected = [
+        \ {'lnum': 6, 'bufnr': 11, 'col': 2, 'valid': 1, 'vcol': 0, 'nr': -1, 'type': '', 'pattern': '', 'text': 'Errorf format %v reads arg #1, but call has 0 args'},
+      \ ]
+  call s:test('veterror/veterror.go', expected)
+endfunc
+
+func! Test_GoTestTestCompilerError() abort
+  let expected = [
+        \ {'lnum': 10, 'bufnr': 9, 'col': 16, 'valid': 1, 'vcol': 0, 'nr': -1, 'type': '', 'pattern': '', 'text': 'cannot use r (type struct {}) as type io.Reader in argument to ioutil.ReadAll:'},
+        \ {'lnum': 0, 'bufnr': 0, 'col': 0, 'valid': 1, 'vcol': 0, 'nr': -1, 'type': '', 'pattern': '', 'text': 'struct {} does not implement io.Reader (missing Read method)'}
+      \ ]
+
+  call s:test('testcompilerror/testcompilerror_test.go', expected)
+endfunc
+
+func! Test_GoTestExample() abort
+  let expected = [
+        \ {'lnum': 0, 'bufnr': 0, 'col': 0, 'valid': 1, 'vcol': 0, 'nr': -1, 'type': '', 'pattern': '', 'text': 'ExampleHelloWorld'}
+      \ ]
+  call s:test('example/example_test.go', expected)
 endfunc
 
 func! s:test(file, expected, ...) abort
-  if has('nvim')
-    " nvim mostly shows test errors correctly, but the the expected errors are
-    " slightly different; buffer numbers are not the same and stderr doesn't
-    " seem to be redirected to the job, so the lines from the panic aren't in
-    " the output to be parsed, and hence are not in the quickfix lists. Once
-    " those two issues are resolved, this early return should be removed so
-    " the tests will run for Neovim, too.
-    return
-  endif
   let $GOPATH = fnameescape(fnamemodify(getcwd(), ':p')) . 'test-fixtures/test'
   silent exe 'e ' . $GOPATH . '/src/' . a:file
 
@@ -94,7 +112,7 @@ func! s:test(file, expected, ...) abort
   endif
 
   " run the tests
-  call call(function('go#test#Test'), args)
+  silent call call(function('go#test#Test'), args)
 
   let actual = getqflist()
   let start = reltime()
@@ -117,5 +135,9 @@ endfunc
 func! s:normalize_durations(str) abort
   return substitute(a:str, '[0-9]\+\(\.[0-9]\+\)\?s', '0.000s', 'g')
 endfunc
+
+" restore Vi compatibility settings
+let &cpo = s:cpo_save
+unlet s:cpo_save
 
 " vim: sw=2 ts=2 et

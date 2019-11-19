@@ -1,3 +1,7 @@
+" don't spam the user when Vim is started in Vi compatibility mode
+let s:cpo_save = &cpo
+set cpo&vim
+
 if exists("g:go_loaded_gosnippets")
   finish
 endif
@@ -40,14 +44,14 @@ function! s:GoMinisnip() abort
   endif
 
   if exists('g:minisnip_dir')
-    let g:minisnip_dir .= ':' . globpath(&rtp, 'gosnippets/minisnip')
+    let g:minisnip_dir .= go#util#PathListSep() . globpath(&rtp, 'gosnippets/minisnip')
   else
     let g:minisnip_dir = globpath(&rtp, 'gosnippets/minisnip')
   endif
 endfunction
 
 
-let s:engine = get(g:, 'go_snippet_engine', 'automatic')
+let s:engine = go#config#SnippetEngine()
 if s:engine is? "automatic"
   if get(g:, 'did_plugin_ultisnips') is 1
     call s:GoUltiSnips()
@@ -63,5 +67,9 @@ elseif s:engine is? "neosnippet"
 elseif s:engine is? "minisnip"
   call s:GoMinisnip()
 endif
+
+" restore Vi compatibility settings
+let &cpo = s:cpo_save
+unlet s:cpo_save
 
 " vim: sw=2 ts=2 et

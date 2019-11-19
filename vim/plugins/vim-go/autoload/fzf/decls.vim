@@ -1,3 +1,7 @@
+" don't spam the user when Vim is started in Vi compatibility mode
+let s:cpo_save = &cpo
+set cpo&vim
+
 function! s:code(group, attr) abort
   let code = synIDattr(synIDtrans(hlID(a:group)), a:attr, "cterm")
   if code =~ '^[0-9]\+$'
@@ -58,35 +62,34 @@ function! s:source(mode,...) abort
   let s:current_dir = expand('%:p:h')
   let ret_decls = []
 
-  let bin_path = go#path#CheckBinPath('motion')
-  if empty(bin_path)
-    return
-  endif
-  let command = printf("%s -format vim -mode decls", bin_path)
-  let command .= " -include ".  get(g:, "go_decls_includes", "func,type")
+  let l:cmd = ['motion',
+        \ '-format', 'vim',
+        \ '-mode', 'decls',
+        \ '-include', go#config#DeclsIncludes(),
+        \ ]
 
   call go#cmd#autowrite()
 
   if a:mode == 0
     " current file mode
-    let fname = expand("%:p")
+    let l:fname = expand("%:p")
     if a:0 && !empty(a:1)
-      let fname = a:1
+      let l:fname = a:1
     endif
 
-    let command .= printf(" -file %s", shellescape(fname))
+    let cmd += ['-file', l:fname]
   else
     " all functions mode
     if a:0 && !empty(a:1)
       let s:current_dir = a:1
     endif
 
-    let command .= printf(" -dir %s", shellescape(s:current_dir))
+    let l:cmd += ['-dir', s:current_dir]
   endif
 
-  let out = go#util#System(command)
-  if go#util#ShellError() != 0
-    call go#util#EchoError(out)
+  let [l:out, l:err] = go#util#Exec(l:cmd)
+  if l:err
+    call go#util#EchoError(l:out)
     return
   endif
 
@@ -146,5 +149,9 @@ function! fzf#decls#cmd(...) abort
         \ 'sink*': function('s:sink')
         \ }))
 endfunction
+
+" restore Vi compatibility settings
+let &cpo = s:cpo_save
+unlet s:cpo_save
 
 " vim: sw=2 ts=2 et
