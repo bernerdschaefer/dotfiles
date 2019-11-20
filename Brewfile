@@ -29,3 +29,6 @@ brew "rcm"
 
 tap "bernerdschaefer/formulae"
 brew "git-git"
+
+tap "heroku/brew"
+brew "heroku"
