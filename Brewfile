@@ -7,7 +7,7 @@ brew "gpg"
 brew "graphviz"
 brew "hub"
 brew "jq"
-brew "postgresql"
+brew "postgresql", restart_service: true
 brew "protobuf"
 brew "the_silver_searcher"
 brew "vim"
