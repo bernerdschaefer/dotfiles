@@ -5,8 +5,10 @@ set shell=/bin/sh
 
 " inject plugins into runtime path, keeping standard
 " after/ paths at the end
-set rtp-=$VIM/vimfiles/after,$HOME/.vim/after
-set rtp+=$HOME/.vim/plugins/*,$VIM/vimfiles/after,$HOME/.vim/after
+set rtp-=$VIM/vimfiles/after
+set rtp-=$HOME/.vim/after
+set rtp-=$VIM/vim82
+set rtp+=$HOME/.vim/plugins/*,$VIM/vim82,$VIM/vimfiles/after,$HOME/.vim/after
 
 syntax off
 filetype plugin indent on
@@ -62,3 +64,5 @@ function! PluginHelpTags()
     silent! execute 'helptags' doc
   endfor
 endfunction
+
+let g:go_fmt_command = "goimports"
