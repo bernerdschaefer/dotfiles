@@ -2,6 +2,7 @@ cask_args appdir: "/Applications"
 
 brew "asdf"
 brew "awscli"
+brew "ctags"
 brew "fish"
 brew "gpg"
 brew "graphviz"
